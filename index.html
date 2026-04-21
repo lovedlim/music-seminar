@@ -213,20 +213,20 @@
     </h1>
     <p class="lead text-gray" style="margin-bottom:40px">Google AI Studio 활용</p>
     <div class="flow" style="justify-content:center;gap:10px;margin-bottom:40px">
-      <div class="flow-item">🎓 닉네임 입장</div>
+      <div class="flow-item">💡 아이디어</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-item">✏️ AI 퀴즈 생성</div>
+      <div class="flow-item">📋 설계서 작성</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-item">🎮 퀴즈 풀기</div>
+      <div class="flow-item">🤖 AI에게 전달</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-item">🏆 리더보드</div>
+      <div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900">🚀 서비스 완성</div>
     </div>
     <div style="display:flex;justify-content:center;gap:36px;color:var(--gray);font-size:15px;font-family:'Space Mono',monospace">
-      <span>Firebase Firestore</span>
+      <span>코딩 지식 불필요</span>
       <span style="color:rgba(255,255,255,0.18)">|</span>
-      <span>Gemini AI API</span>
+      <span>Google 계정 하나</span>
       <span style="color:rgba(255,255,255,0.18)">|</span>
-      <span>HTML · CSS · JS</span>
+      <span>무료로 시작</span>
     </div>
   </div>
 </div>
@@ -503,8 +503,8 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 교수자가 만들고, 학습자가 풀며 경쟁한다.
 
 2. 사용자
-- 교수자: 비밀번호 로그인, 퀴즈 생성·검토·공개
-- 학습자: 닉네임 로그인, 퀴즈 선택·풀기
+- 교수자: 비밀번호 입장, 퀴즈 생성·검토·공개
+- 학습자: 닉네임 입장, 퀴즈 선택·풀기
 
 3. 화면별 기능
 [입장] 닉네임 입력 (교수자: 비밀번호 추가 확인)
@@ -541,7 +541,7 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
           <p style="font-size:13px;color:#C77DFF;font-weight:700">③ 지금 뭘 원하나 <span style="color:var(--soft);font-weight:400">— 단계별 지시, 지금은 1단계만</span></p>
         </div>
         <div style="padding:10px 14px;background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.3);border-radius:10px">
-          <p style="font-size:13px;color:var(--green);font-weight:700">④ 제약 조건 <span style="color:var(--soft);font-weight:400">— 아직 코드 만들지 마 / HTML 한 파일로</span></p>
+          <p style="font-size:13px;color:var(--green);font-weight:700">④ 제약 조건 <span style="color:var(--soft);font-weight:400">— 아직 코드 만들지 마 / 단계별로 만들어줘</span></p>
         </div>
       </div>
     </div>
@@ -1228,7 +1228,7 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
           <tr><td class="td-hi"><strong>Google 계정</strong></td><td>AI Studio + Firebase 모두 Google 로그인</td><td>무료</td></tr>
           <tr><td><strong>Chrome 브라우저</strong></td><td>에러 확인 (F12) 가장 편함</td><td>무료</td></tr>
           <tr><td><strong>Firebase 프로젝트</strong></td><td>데이터 저장 + 실시간 동기화</td><td>무료(Spark)</td></tr>
-          <tr><td><strong>Gemini API 키</strong></td><td>AI 퀴즈 자동 생성</td><td>무료 한도 제공</td></tr>
+          <tr><td><strong>Gemini API 키</strong></td><td>앱 안에서 AI 퀴즈 자동 생성 (AI Studio 자체와 별개)</td><td>무료 한도 제공</td></tr>
         </tbody>
       </table>
       <div class="card card-good" style="padding:16px">
@@ -1347,8 +1347,8 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 AI 음악 퀴즈 프로그램을 만들려고 해.
 
 사용자는 두 종류야:
-- 교수자: 비밀번호로 로그인, 퀴즈 생성·관리
-- 학습자: 닉네임만으로 로그인, 퀴즈 풀기
+- 교수자: 비밀번호로 입장, 퀴즈 생성·관리
+- 학습자: 닉네임만으로 입장, 퀴즈 풀기
 
 공통 기능:
 - 퀴즈별 실시간 리더보드 (점수 높은 순 정렬, 내 닉네임 강조)
@@ -1635,7 +1635,7 @@ AI 음악 퀴즈 프로그램을 만들려고 해.
       </div>
     </div>
     <div>
-      <div class="tag tag-purple" style="font-size:10px;margin-bottom:8px">📁 sessions — 로그인 정보</div>
+      <div class="tag tag-purple" style="font-size:10px;margin-bottom:8px">📁 sessions — 입장 정보</div>
       <div class="code-box" style="font-size:12px;line-height:1.8;padding:14px;margin-bottom:12px">
 {
   <span class="kw">nickname</span>: <span class="str">"JazzMaster"</span>,
@@ -1685,7 +1685,7 @@ AI 음악 퀴즈 프로그램을 만들려고 해.
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,45,138,0.09) 0%,rgba(0,229,255,0.05) 50%,transparent 70%);pointer-events:none;z-index:0"></div>
   <div style="margin-block:auto;text-align:center;z-index:1">
     <div class="tag tag-gold" style="margin-bottom:22px">🎵 Summary</div>
-    <h2 style="margin-bottom:26px" class="text-neon">AI 음악 퀴즈 프로그램</h2>
+    <h2 style="margin-bottom:26px" class="text-neon">음악예술가를 위한 바이브 코딩</h2>
     <div class="four-col" style="margin-bottom:30px;gap:14px;max-width:900px;margin-inline:auto">
       <div class="card card-cyan" style="text-align:center;padding:16px 10px">
         <span style="font-size:28px;display:block;margin-bottom:6px">🤖</span>
