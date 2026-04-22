@@ -816,7 +816,7 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 <p style="font-size:13px;color:var(--cyan);font-weight:700">① 내 상황 <span style="color:var(--soft);font-weight:400">— "나는 비전공자야, 코딩 처음이야"</span></p>
 </div>
 <div style="padding:10px 14px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.3);border-radius:10px">
-<p style="font-size:13px;color:var(--orange);font-weight:700">② 만들 것 <span style="color:var(--soft);font-weight:400">— PRD 전체 (역할·기능·데이터구조)</span></p>
+<p style="font-size:13px;color:var(--orange);font-weight:700">② 만들 것 <span style="color:var(--soft);font-weight:400">— PRD 1~3번 (소개·역할·화면별 기능)</span></p>
 </div>
 <div style="padding:10px 14px;background:rgba(155,0,255,0.08);border:1px solid rgba(155,0,255,0.3);border-radius:10px">
 <p style="font-size:13px;color:#C77DFF;font-weight:700">③ 지금 할 일 <span style="color:var(--soft);font-weight:400">— "1단계만 해줘, 단계별로 가자"</span></p>
@@ -836,9 +836,11 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 <p style="font-size:13px;color:var(--green);font-weight:700;margin-bottom:8px">✅ 4요소 갖추면</p>
 <div class="code-box" style="font-size:12px;line-height:1.75;padding:12px">"나는 비전공자야. ← ①
 음악 퀴즈 앱을 만들려고 해.
-[설계서 붙여넣기] ← ②
+[PRD 1. 서비스 소개 붙여넣기]  ← ②
+[PRD 2. 사용자 종류와 역할]    ← ②
+[PRD 3. 화면별 기능 목록]      ← ②
 아직 코드 만들지 마. ← ④
-설계서 읽고 질문해줘." ← ③</div>
+읽고 질문해줘." ← ③</div>
 </div>
 <div class="card" style="padding:12px;background:rgba(255,215,0,0.06);border-color:rgba(255,215,0,0.25)">
 <p style="font-size:15px;color:var(--gold)">💡 AI가 질문을 돌려준다 = 좋은 프롬프트의 신호</p>
@@ -1262,18 +1264,22 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 각 카드: 퀴즈 제목, 장르 태그, 문항수.
 완료한 퀴즈는 회색으로 표시.
 다크 테마, 네온 포인트 컬러."</div>
-<div class="card card-good" style="padding:16px;margin-bottom:12px">
-<p style="font-size:16px;color:var(--soft)">
+<div class="card" style="padding:14px;background:rgba(255,45,138,0.08);border-color:rgba(255,45,138,0.3);margin-bottom:12px">
+<p style="font-size:14px;color:var(--pink);font-weight:700;margin-bottom:8px">⚠️ 핵심 — PRD 화면 = Stitch 화면</p>
+<ul class="check-list" style="font-size:14px">
+<li>입장 화면 (닉네임 입력)</li>
+<li>교수자 화면</li>
+<li>학습자 퀴즈 화면</li>
+<li>리더보드</li>
+</ul>
+<p style="font-size:13px;color:var(--gray);margin-top:8px">PRD에 있는 화면은 Stitch에도 그려야<br/>AI가 디자인을 정확하게 만들 수 있어요</p>
+</div>
+<div class="card card-good" style="padding:14px">
+<p style="font-size:15px;color:var(--soft)">
 <strong style="color:var(--green)">Stitch 완성 후 → AI Studio로</strong><br/>
-          화면 캡처 이미지를 AI Studio에 붙여넣고<br/>
+          화면 캡처를 붙여넣고<br/>
           "이 디자인대로 HTML 만들어줘"
         </p>
-</div>
-<div class="card" style="padding:14px;background:rgba(255,45,138,0.06);border-color:rgba(255,45,138,0.2)">
-<p style="font-size:15px;color:var(--gray)">
-          💡 Stitch 없이 시작해도 되지만,<br/>
-          있으면 수정 시간이 <strong style="color:white">70% 이상 줄어듦</strong>
-</p>
 </div>
 </div>
 </div>
