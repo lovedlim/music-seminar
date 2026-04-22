@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI 음악 퀴즈 프로그램 — 세미나 발표</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap');
@@ -150,7 +151,7 @@
   .nav-info{font-size:14px;font-weight:700;color:var(--soft);min-width:72px;text-align:center;font-family:'Space Mono',monospace}
   .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--cyan));transition:width 0.3s ease;z-index:1001;box-shadow:0 0 8px rgba(255,45,138,0.6)}
   .key-hint{position:fixed;top:14px;right:16px;background:rgba(13,13,30,0.85);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:5px 13px;font-size:12px;color:var(--gray);font-family:'Space Mono',monospace;z-index:1000}
-  .slide-num{position:fixed;top:14px;left:16px;font-size:12px;color:var(--gray);font-family:'Space Mono',monospace;z-index:1000}
+  .slide-num{position:fixed;top:14px;left:16px;font-size:10px;color:rgba(122,122,154,0.6);font-family:'Space Mono',monospace;z-index:1000}
 
   /* ─── PDF 인쇄 (A4 Landscape) ─── */
   @media print {
@@ -193,7 +194,6 @@
 <div class="key-hint">← → 방향키 또는 스페이스바</div>
 <div class="slide-num" id="slideNum">01 / 26</div>
 <div class="slideshow" id="slideshow">
-
 <!-- ★ 새 슬라이드 순서 (26장)
   도입:  01 타이틀  02 목차
   PART1: 03 표지  04 왜필요  05 바이브코딩  06 도구  07 진짜의미
@@ -201,304 +201,587 @@
   PART3: 15 표지  16 준비물  17 설계서  18 4단계  19 대화록  20 생존기술  21 실수
   PART4: 22 표지  23 시스템구조  24 Firebase  25 로드맵  26 Q&A
 ★ -->
-
 <!-- ══ 01 타이틀 ══ -->
-<div class="slide active" id="s1">
-  <div class="grid-bg"></div>
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(155,0,255,0.16) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1">
-    <div class="tag tag-pink" style="margin-bottom:26px">🎵 AI × Music × Education</div>
-    <h1 style="font-size:74px;margin-bottom:18px;line-height:1.05">
-      <span class="text-neon">AI 음악 퀴즈</span><br><span style="color:white">프로그램</span>
-    </h1>
-    <p class="lead text-gray" style="margin-bottom:40px">바이브 코딩으로 만드는 교수자·학습자 협업 퀴즈 플랫폼</p>
-    <div class="flow" style="justify-content:center;gap:10px;margin-bottom:40px">
-      <div class="flow-item">🎓 닉네임 입장</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">✏️ AI 퀴즈 생성</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">🎮 퀴즈 풀기</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">🏆 리더보드</div>
-    </div>
-    <div style="display:flex;justify-content:center;gap:36px;color:var(--gray);font-size:15px;font-family:'Space Mono',monospace">
-      <span>Firebase Firestore</span>
-      <span style="color:rgba(255,255,255,0.18)">|</span>
-      <span>Gemini AI API</span>
-      <span style="color:rgba(255,255,255,0.18)">|</span>
-      <span>HTML · CSS · JS</span>
-    </div>
-  </div>
-</div>
-
 
 <!-- ══ 02 목차 ══ -->
-<div class="slide" id="s2">
-  <div class="slide-header">
-    <div class="tag tag-cyan">Road Map</div>
-    <h2>오늘 배울 것들</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="four-col" style="flex:1;align-items:start">
-    <div class="card card-cyan">
-      <div class="tag tag-cyan" style="font-size:10px;margin-bottom:10px">PART 1</div>
-      <h4 class="text-cyan" style="font-size:19px;margin-bottom:12px">🤖 바이브 코딩이란?</h4>
-      <ul class="check-list" style="font-size:15px">
-        <li>비개발자도 만드는 시대</li>
-        <li>뭘 만들 수 있나</li>
-        <li>바이브 코딩 핵심 개념</li>
-        <li>설계서 작성법</li>
-        <li>좋은 프롬프트 공식</li>
-        <li>2026 주요 도구</li>
-      </ul>
-    </div>
-    <div class="card card-orange">
-      <div class="tag tag-orange" style="font-size:10px;margin-bottom:10px">PART 2</div>
-      <h4 class="text-orange" style="font-size:19px;margin-bottom:12px">🎵 우리가 만들 것</h4>
-      <ul class="check-list" style="font-size:15px">
-        <li>프로젝트 소개</li>
-        <li>누가 쓰는가?</li>
-        <li>전체 사용 흐름</li>
-        <li>화면별 기능 소개</li>
-        <li>Google Stitch로 화면 그리기</li>
-      </ul>
-    </div>
-    <div class="card card-pink">
-      <div class="tag tag-pink" style="font-size:10px;margin-bottom:10px">PART 3</div>
-      <h4 class="text-pink" style="font-size:19px;margin-bottom:12px">🛠️ 만들어보자</h4>
-      <ul class="check-list" style="font-size:15px">
-        <li>AI Studio Build 화면 가이드</li>
-        <li>사전 준비물</li>
-        <li>AI에게 전달하는 법</li>
-        <li>실전 대화록</li>
-        <li>AI Studio Share vs Publish</li>
-        <li>생존 기술 & 실수 모음</li>
-      </ul>
-    </div>
-    <div class="card card-purple">
-      <div class="tag tag-purple" style="font-size:10px;margin-bottom:10px">PART 4 · 심화</div>
-      <h4 style="font-size:19px;margin-bottom:12px;color:white">🔬 기술 이해</h4>
-      <ul class="check-list" style="font-size:15px">
-        <li>시스템 구조</li>
-        <li>Firebase 데이터 구조</li>
-        <li>전체 로드맵</li>
-      </ul>
-    </div>
-  </div>
-</div>
 
 <!-- ══ 03 PART 1 표지 ══ -->
-<div class="slide" id="s3">
-  <div class="grid-bg"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1">
-    <div class="part-badge">PART 1</div>
-    <h2 style="font-size:60px;margin-bottom:20px">
-      <span class="text-neon">바이브 코딩</span>이란?
-    </h2>
-    <p class="lead text-gray" style="max-width:640px;margin:0 auto 36px">
-      코드를 모르는 사람도 AI와 함께<br>실제 서비스를 만들 수 있는 방법론
-    </p>
-    <div class="flow" style="justify-content:center">
-      <div class="flow-item">📋 계획 세우기</div>
-      <div class="flow-arrow">+</div>
-      <div class="flow-item">🤖 AI에게 전달</div>
-      <div class="flow-arrow">=</div>
-      <div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900">🚀 서비스 완성</div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ 03a 비개발자의 시대 ══ -->
-<div class="slide" id="s3a">
-  <div class="grid-bg"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1;max-width:900px;margin-inline:auto">
-    <div class="tag tag-pink" style="margin-bottom:28px">왜 지금인가</div>
-    <h2 style="font-size:54px;margin-bottom:24px;line-height:1.2">
-      <span style="color:white">2026년,</span> <span class="text-neon">AI 에이전트</span><br>
-      <span style="color:white">시대가 왔다</span>
-    </h2>
-    <div class="three-col" style="margin-bottom:28px;gap:16px">
-      <div class="card card-cyan" style="text-align:center;padding:20px">
-        <span style="font-size:36px;display:block;margin-bottom:8px">📅</span>
-        <h4 class="text-cyan" style="font-size:16px;margin-bottom:6px">2022년</h4>
-        <p style="font-size:14px;color:var(--gray)">ChatGPT 등장<br>"AI야 코드 짜줘"</p>
-      </div>
-      <div class="card card-orange" style="text-align:center;padding:20px">
-        <span style="font-size:36px;display:block;margin-bottom:8px">⚡</span>
-        <h4 class="text-orange" style="font-size:16px;margin-bottom:6px">2024~2025년</h4>
-        <p style="font-size:14px;color:var(--gray)">바이브 코딩 툴 등장<br>"앱 만들어줘" → 웬만하면 됨</p>
-      </div>
-      <div class="card card-pink" style="text-align:center;padding:20px;border:2px solid rgba(255,45,138,0.5)">
-        <span style="font-size:36px;display:block;margin-bottom:8px">🤖</span>
-        <h4 class="text-pink" style="font-size:16px;margin-bottom:6px">2026년 지금</h4>
-        <p style="font-size:14px;color:var(--gray)">AI 에이전트가 스스로<br>계획하고 만들고 고친다</p>
-      </div>
-    </div>
-    <div style="padding:24px 36px;background:rgba(255,45,138,0.08);border-radius:20px;border:1.5px solid rgba(255,45,138,0.25)">
-      <h3 style="font-size:26px;line-height:1.7;color:white">
-        "해줘"만 해도 웬만하면 된다.<br>
-        그래도 <span class="text-neon">방향을 잘 주는 사람</span>이 — <span class="text-pink">더 빠르고, 더 정확하게</span> 원하는 걸 얻는다.
-      </h3>
-    </div>
-  </div>
-</div>
 
 <!-- ══ 03b 바이브 코딩으로 뭘 만들 수 있나 ══ -->
-<div class="slide" id="s3b">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
-    <h2>코드 한 줄 없이 — 이런 걸 만들 수 있어요</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;align-items:start">
-    <div class="card" style="padding:18px;border-left:4px solid var(--cyan)">
-      <span style="font-size:32px;display:block;margin-bottom:8px">🎵</span>
-      <h4 style="font-size:17px;color:var(--cyan);margin-bottom:6px">음악 퀴즈 플랫폼</h4>
-      <p style="font-size:14px;color:var(--gray);line-height:1.7">퀴즈 생성·공유·리더보드<br>→ <strong style="color:white">오늘 만들 것</strong></p>
-    </div>
-    <div class="card" style="padding:18px;border-left:4px solid var(--orange)">
-      <span style="font-size:32px;display:block;margin-bottom:8px">📋</span>
-      <h4 style="font-size:17px;color:var(--orange);margin-bottom:6px">수강 관리 앱</h4>
-      <p style="font-size:14px;color:var(--gray);line-height:1.7">출석 체크·과제 제출<br>학원·교습소에서 바로 사용</p>
-    </div>
-    <div class="card" style="padding:18px;border-left:4px solid var(--pink)">
-      <span style="font-size:32px;display:block;margin-bottom:8px">🛒</span>
-      <h4 style="font-size:17px;color:var(--pink);margin-bottom:6px">주문 접수 시스템</h4>
-      <p style="font-size:14px;color:var(--gray);line-height:1.7">메뉴 선택·주문 알림<br>소규모 가게용</p>
-    </div>
-    <div class="card" style="padding:18px;border-left:4px solid var(--purple)">
-      <span style="font-size:32px;display:block;margin-bottom:8px">💰</span>
-      <h4 style="font-size:17px;color:#C77DFF;margin-bottom:6px">팀 가계부</h4>
-      <p style="font-size:14px;color:var(--gray);line-height:1.7">여러 명이 함께 지출 기록<br>실시간 공유</p>
-    </div>
-    <div class="card" style="padding:18px;border-left:4px solid var(--gold)">
-      <span style="font-size:32px;display:block;margin-bottom:8px">📊</span>
-      <h4 style="font-size:17px;color:var(--gold);margin-bottom:6px">설문·투표 앱</h4>
-      <p style="font-size:14px;color:var(--gray);line-height:1.7">문항 작성·결과 시각화<br>회의·수업에서 즉시 활용</p>
-    </div>
-    <div class="card" style="padding:18px;border-left:4px solid var(--green)">
-      <span style="font-size:32px;display:block;margin-bottom:8px">🌐</span>
-      <h4 style="font-size:17px;color:var(--green);margin-bottom:6px">포트폴리오 사이트</h4>
-      <p style="font-size:14px;color:var(--gray);line-height:1.7">내 작품·경력 소개 페이지<br>URL 하나로 공유</p>
-    </div>
-  </div>
-  <div class="card card-good" style="margin-top:14px;padding:12px">
-    <p style="font-size:16px;text-align:center;color:var(--soft)">공통 조건 — <strong style="color:var(--green)">Google 계정 하나</strong>면 충분 · 추가 비용 없음 · 코딩 지식 불필요</p>
-  </div>
-</div>
 
 <!-- ══ 04 왜 계획이 필요한가 ══ -->
-<div class="slide" id="s4">
-  <div class="slide-header">
-    <div class="tag tag-pink">PART 1 · 바이브 코딩</div>
-    <h2>AI 에이전트와 잘 협업하는 법</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:center">
-    <div>
-      <div class="card card-good" style="padding:20px;margin-bottom:16px">
-        <h4 class="text-green" style="font-size:17px;margin-bottom:10px">✅ AI 에이전트가 잘 하는 것</h4>
-        <ul class="check-list" style="font-size:16px">
-          <li>간단한 앱 — "해줘" 한 마디로 뚝딱</li>
-          <li>코드 오류 스스로 찾아서 수정</li>
-          <li>반복적인 작업 자동 처리</li>
-          <li>디자인 수정·기능 추가 즉시 반영</li>
-        </ul>
-      </div>
-      <div class="card" style="padding:20px;border-color:rgba(0,229,255,0.3)">
-        <h4 class="text-cyan" style="font-size:17px;margin-bottom:10px">💡 방향을 잘 주면 더 잘 된다</h4>
-        <ul class="check-list" style="font-size:16px">
-          <li>사용자가 2종류면 — 각 역할을 명확히</li>
-          <li>데이터가 공유되면 — 구조를 미리 정의</li>
-          <li>화면이 여러 개면 — 흐름을 먼저 그리기</li>
-          <li>원하는 결과가 구체적일수록 — 더 정확히 나옴</li>
-        </ul>
-      </div>
-    </div>
-    <div>
-      <div class="quote" style="margin-bottom:22px;font-size:20px">
-        AI 에이전트는 이제 정말 잘 한다.<br>
-        <strong style="color:white">단, 어디로 가야 할지 모르면<br>열심히 엉뚱한 방향으로 간다.</strong>
-      </div>
-      <div class="card" style="padding:20px;background:rgba(255,45,138,0.06);border-color:rgba(255,45,138,0.3)">
-        <p style="font-size:18px;line-height:1.8;color:var(--soft)">
-          바이브 코딩의 핵심은<br>
-          <strong style="color:white">AI를 막는 것이 아니라<br>방향을 잘 잡아주는 것</strong>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ 05 바이브 코딩이란 ══ -->
-<div class="slide" id="s5">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
-    <h2>바이브 코딩 — 두 가지 핵심 개념</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start">
-    <div class="card" style="border-left:5px solid var(--cyan);height:100%">
-      <div class="badge badge-cyan" style="margin-bottom:14px">① 먼저 설계, 그 다음 AI</div>
-      <h4 class="text-cyan" style="margin-bottom:12px">Spec-Driven Development</h4>
-      <p style="font-size:20px;margin-bottom:16px">
-        코드를 짜기 전에 <strong style="color:white">"뭘 만들지"를 먼저 문서로 정리</strong>하고,<br>
-        그 문서를 AI에게 넘겨서 코드를 만들게 한다
-      </p>
-      <div class="card card-cyan" style="padding:14px">
-        <p style="font-size:17px;color:var(--cyan);font-weight:700">건축으로 비유하면:</p>
-        <p style="font-size:17px">설계도(PRD) 없이 집 짓기 시작하면?<br>공사 중간에 전부 다시 해야 한다!</p>
-      </div>
-    </div>
-    <div class="card" style="border-left:5px solid var(--purple);height:100%">
-      <div class="badge" style="background:rgba(155,0,255,0.25);color:#C77DFF;margin-bottom:14px">② AI에게 잘 전달하기</div>
-      <h4 style="color:#C77DFF;margin-bottom:12px">Context Engineering</h4>
-      <p style="font-size:20px;margin-bottom:16px">
-        <strong style="color:white">"AI에게 얼마나 정확하게 설명하느냐"</strong>가<br>
-        결과물의 품질을 결정한다
-      </p>
-      <div class="card card-purple" style="padding:14px">
-        <p style="font-size:17px;color:#C77DFF;font-weight:700">직원에게 업무 지시하기:</p>
-        <p style="font-size:17px">"알아서 해줘" vs "이 기획서 보고 1번부터 해줘"<br>결과가 완전히 다르다!</p>
-      </div>
-    </div>
-  </div>
-  <div class="card card-dark" style="margin-top:18px;padding:18px">
-    <div class="flow" style="justify-content:center;gap:24px">
-      <div style="text-align:center"><p style="color:var(--gray);font-size:14px;margin-bottom:4px">설계</p><p style="color:white;font-size:19px;font-weight:700">뭘 만들지 정하기</p></div>
-      <div class="flow-arrow" style="font-size:28px">+</div>
-      <div style="text-align:center"><p style="color:var(--gray);font-size:14px;margin-bottom:4px">전달</p><p style="color:white;font-size:19px;font-weight:700">AI에게 정확히 넘기기</p></div>
-      <div class="flow-arrow" style="font-size:28px">=</div>
-      <div style="background:linear-gradient(135deg,rgba(255,45,138,0.25),rgba(155,0,255,0.25));padding:12px 20px;border-radius:12px;border:1px solid rgba(255,45,138,0.4)">
-        <p style="color:white;font-size:19px;font-weight:800">🚀 서비스 완성</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ 05a 설계서 작성법 ══ -->
+
+<!-- ══ 05b 프롬프트 작성 가이드 ══ -->
+
+<!-- ══ 06 2026 주요 도구 ══ -->
+
+<!-- ══ 06b AI Studio 예시 앱 ══ -->
+
+<!-- ══ 07 기도 코딩 vs 바이브 코딩 ══ -->
+
+<!-- ══ 08 PART 2 표지 ══ -->
+
+<!-- ══ 09 프로젝트 소개 ══ -->
+
+<!-- ══ 09b 결과물 미리보기 ══ -->
+
+<!-- ══ 10 누가 쓰는가 ══ -->
+
+<!-- ══ 11 전체 사용 흐름 ══ -->
+
+<!-- ══ 12 교수자 화면 소개 ══ -->
+
+<!-- ══ 13 학습자 화면 소개 ══ -->
+
+<!-- ══ 14 리더보드 소개 ══ -->
+
+<!-- ══ 15 Google Stitch로 화면 먼저 그리기 ══ -->
+
+<!-- ══ 15 PART 3 표지 ══ -->
+
+<!-- ══ 15c AI Studio Build 모드 가이드 ══ -->
+
+<!-- ══ 16 사전 준비물 ══ -->
+
+<!-- ══ 17 AI에게 설계서 전달하는 법 ══ -->
+
+<!-- ══ 18 단계별 전달 4단계 ══ -->
+
+<!-- ══ 19 실전 대화록 ══ -->
+
+<!-- ══ 19b AI Studio Share & Publish ══ -->
+
+<!-- ══ 20 생존 기술 ══ -->
+
+<!-- ══ 22 PART 4 표지 (심화) ══ -->
+
+<!-- ══ 23 전체 시스템 구조 ══ -->
+
+<!-- ══ 24 Firebase 데이터 구조 ══ -->
+
+<!-- ══ 25 정리 로드맵 ══ -->
+
+<!-- ══ 01 Q&A ══ -->
+
+<div class="slide active" id="s1">
+<div class="grid-bg"></div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(155,0,255,0.16) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
+<div style="margin-block:auto;text-align:center;z-index:1">
+<div class="tag tag-pink" style="margin-bottom:26px">🎵 AI × Music × Vibe Coding</div>
+<h1 style="font-size:74px;margin-bottom:18px;line-height:1.05"><span style="color:white">음악예술가를 위한</span><br/><span class="text-neon">바이브 코딩</span></h1>
+<p class="lead text-gray" style="margin-bottom:40px">Google AI Studio 활용</p>
+<div class="flow" style="justify-content:center;gap:10px;margin-bottom:40px">
+<div class="flow-item">🎓 닉네임 입장</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">✏️ AI 퀴즈 생성</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">🎮 퀴즈 풀기</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">🏆 리더보드</div>
+</div>
+<div style="display:flex;justify-content:center;gap:16px;color:var(--gray);font-size:17px;font-family:'Space Mono',monospace">
+<span>SideOnAI 김태헌</span>
+<span style="color:rgba(255,255,255,0.18)">/</span>
+<span>퇴근후딴짓</span>
+</div>
+</div>
+</div>
+<div class="slide" id="s1b">
+<div class="grid-bg"></div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:1;padding:32px 48px">
+<img alt="발표자 프로필" src="profile_slide.png" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;box-shadow:0 0 60px rgba(155,0,255,0.18)"/>
+</div>
+</div>
+<div class="slide" id="s2">
+<div class="slide-header">
+<div class="tag tag-cyan">Road Map</div>
+<h2>오늘 배울 것들</h2>
+</div>
+<div class="neon-line"></div>
+<div class="four-col" style="flex:1;align-items:start">
+<div class="card card-cyan">
+<div class="tag tag-cyan" style="font-size:10px;margin-bottom:10px">PART 1</div>
+<h4 class="text-cyan" style="font-size:13px;margin-bottom:10px;font-weight:700;letter-spacing:0.5px">🤖 바이브 코딩이란?</h4>
+<ul class="check-list" style="font-size:12px">
+<li>비개발자도 만드는 시대</li>
+<li>뭘 만들 수 있나</li>
+<li>2026 주요 도구</li>
+<li>AI Studio 실습</li>
+<li>핵심 개념 &amp; PRD</li>
+<li>프롬프트 작성 가이드</li>
+</ul>
+</div>
+<div class="card card-orange">
+<div class="tag tag-orange" style="font-size:10px;margin-bottom:10px">PART 2</div>
+<h4 class="text-orange" style="font-size:13px;margin-bottom:10px;font-weight:700;letter-spacing:0.5px">🎵 우리가 만들 것</h4>
+<ul class="check-list" style="font-size:12px">
+<li>프로젝트 소개</li>
+<li>누가 쓰는가?</li>
+<li>전체 사용 흐름</li>
+<li>화면별 기능 소개</li>
+<li>Stitch로 화면 그리기</li>
+</ul>
+</div>
+<div class="card card-pink">
+<div class="tag tag-pink" style="font-size:10px;margin-bottom:10px">PART 3</div>
+<h4 class="text-pink" style="font-size:13px;margin-bottom:10px;font-weight:700;letter-spacing:0.5px">🛠️ 만들어보자</h4>
+<ul class="check-list" style="font-size:12px">
+<li>사전 준비물</li>
+<li>AI에게 전달하는 법</li>
+<li>단계별 전달 4단계</li>
+<li>실전 대화록</li>
+<li>Share &amp; Publish</li>
+<li>생존 기술</li>
+</ul>
+</div>
+<div class="card card-purple">
+<div class="tag tag-purple" style="font-size:10px;margin-bottom:10px">PART 4 · 심화</div>
+<h4 style="font-size:13px;margin-bottom:10px;font-weight:700;letter-spacing:0.5px;color:white">🔬 기술 이해</h4>
+<ul class="check-list" style="font-size:12px">
+<li>시스템 구조</li>
+<li>Firebase 데이터 구조</li>
+<li>전체 로드맵</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide" id="s3">
+<div class="grid-bg"></div>
+<div style="margin-block:auto;text-align:center;z-index:1">
+<div class="part-badge">PART 1</div>
+<h2 style="font-size:60px;margin-bottom:20px">
+<span class="text-neon">바이브 코딩</span>이란?
+    </h2>
+<p class="lead text-gray" style="max-width:640px;margin:0 auto 36px">
+      코드를 모르는 사람도 AI와 함께<br/>실제 서비스를 만들 수 있는 방법론
+    </p>
+<div class="flow" style="justify-content:center">
+<div class="flow-item">📋 계획 세우기</div>
+<div class="flow-arrow">+</div>
+<div class="flow-item">🤖 AI에게 전달</div>
+<div class="flow-arrow">=</div>
+<div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900">🚀 서비스 완성</div>
+</div>
+</div>
+</div>
+<div class="slide" id="s3a">
+<div class="grid-bg"></div>
+<div style="margin-block:auto;text-align:center;z-index:1;max-width:900px;margin-inline:auto">
+<div class="tag tag-pink" style="margin-bottom:28px">왜 지금인가</div>
+<h2 style="font-size:54px;margin-bottom:24px;line-height:1.2">
+<span style="color:white">2026년,</span> <span class="text-neon">AI 에이전트</span><br/>
+<span style="color:white">시대가 왔다</span>
+</h2>
+<div class="three-col" style="margin-bottom:28px;gap:16px">
+<div class="card card-cyan" style="text-align:center;padding:20px">
+<span style="font-size:36px;display:block;margin-bottom:8px">📅</span>
+<h4 class="text-cyan" style="font-size:16px;margin-bottom:6px">2022년</h4>
+<p style="font-size:14px;color:var(--gray)">ChatGPT 등장<br/>"AI야 코드 짜줘"</p>
+</div>
+<div class="card card-orange" style="text-align:center;padding:20px">
+<span style="font-size:36px;display:block;margin-bottom:8px">⚡</span>
+<h4 class="text-orange" style="font-size:16px;margin-bottom:6px">2024~2025년</h4>
+<p style="font-size:14px;color:var(--gray)">바이브 코딩 툴 등장<br/>"앱 만들어줘" → 웬만하면 됨</p>
+</div>
+<div class="card card-pink" style="text-align:center;padding:20px;border:2px solid rgba(255,45,138,0.5)">
+<span style="font-size:36px;display:block;margin-bottom:8px">🤖</span>
+<h4 class="text-pink" style="font-size:16px;margin-bottom:6px">2026년 지금</h4>
+<p style="font-size:14px;color:var(--gray)">AI 에이전트가 스스로<br/>계획하고 만들고 고친다</p>
+</div>
+</div>
+<div style="padding:24px 36px;background:rgba(255,45,138,0.08);border-radius:20px;border:1.5px solid rgba(255,45,138,0.25)">
+<h3 style="font-size:26px;line-height:1.7;color:white">
+        "해줘"만 해도 웬만하면 된다.<br/>
+        그래도 <span class="text-neon">방향을 잘 주는 사람</span>이 — <span class="text-pink">더 빠르고, 더 정확하게</span> 원하는 걸 얻는다.
+      </h3>
+</div>
+</div>
+</div>
+<div class="slide" id="s3b">
+<div class="slide-header">
+<div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
+<h2>코드 한 줄 없이 — 이런 걸 만들 수 있어요</h2>
+</div>
+<div class="neon-line"></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;align-items:start">
+<div class="card" style="padding:18px;border-left:4px solid var(--cyan)">
+<span style="font-size:32px;display:block;margin-bottom:8px">🎵</span>
+<h4 style="font-size:17px;color:var(--cyan);margin-bottom:6px">음악 퀴즈 플랫폼</h4>
+<p style="font-size:14px;color:var(--gray);line-height:1.7">퀴즈 생성·공유·리더보드<br/>→ <strong style="color:white">오늘 만들 것</strong></p>
+</div>
+<div class="card" style="padding:18px;border-left:4px solid var(--orange)">
+<span style="font-size:32px;display:block;margin-bottom:8px">📋</span>
+<h4 style="font-size:17px;color:var(--orange);margin-bottom:6px">수강 관리 앱</h4>
+<p style="font-size:14px;color:var(--gray);line-height:1.7">출석 체크·과제 제출<br/>학원·교습소에서 바로 사용</p>
+</div>
+<div class="card" style="padding:18px;border-left:4px solid var(--pink)">
+<span style="font-size:32px;display:block;margin-bottom:8px">🛒</span>
+<h4 style="font-size:17px;color:var(--pink);margin-bottom:6px">주문 접수 시스템</h4>
+<p style="font-size:14px;color:var(--gray);line-height:1.7">메뉴 선택·주문 알림<br/>소규모 가게용</p>
+</div>
+<div class="card" style="padding:18px;border-left:4px solid var(--purple)">
+<span style="font-size:32px;display:block;margin-bottom:8px">💰</span>
+<h4 style="font-size:17px;color:#C77DFF;margin-bottom:6px">팀 가계부</h4>
+<p style="font-size:14px;color:var(--gray);line-height:1.7">여러 명이 함께 지출 기록<br/>실시간 공유</p>
+</div>
+<div class="card" style="padding:18px;border-left:4px solid var(--gold)">
+<span style="font-size:32px;display:block;margin-bottom:8px">📊</span>
+<h4 style="font-size:17px;color:var(--gold);margin-bottom:6px">설문·투표 앱</h4>
+<p style="font-size:14px;color:var(--gray);line-height:1.7">문항 작성·결과 시각화<br/>회의·수업에서 즉시 활용</p>
+</div>
+<div class="card" style="padding:18px;border-left:4px solid var(--green)">
+<span style="font-size:32px;display:block;margin-bottom:8px">🌐</span>
+<h4 style="font-size:17px;color:var(--green);margin-bottom:6px">포트폴리오 사이트</h4>
+<p style="font-size:14px;color:var(--gray);line-height:1.7">내 작품·경력 소개 페이지<br/>URL 하나로 공유</p>
+</div>
+</div>
+<div class="card card-good" style="margin-top:14px;padding:12px">
+<p style="font-size:16px;text-align:center;color:var(--soft)">공통 조건 — <strong style="color:var(--green)">Google 계정 하나</strong>면 충분 · 추가 비용 없음 · 코딩 지식 불필요</p>
+</div>
+</div>
+<div class="slide" id="s6">
+<div class="slide-header">
+<div class="tag tag-orange">PART 1 · 바이브 코딩</div>
+<h2>2026년 주요 도구 한눈에 보기</h2>
+</div>
+<div class="neon-line"></div>
+<table>
+<thead><tr><th>도구</th><th>무엇에 쓰나</th><th>특징</th><th>난이도</th></tr></thead>
+<tbody>
+<tr class="td-hi">
+<td><strong>Google Stitch ⭐</strong></td>
+<td>디자인</td>
+<td>말로 설명하면 AI가 앱 화면을 그려줌</td>
+<td><span class="badge badge-green">매우 쉬움</span></td>
+</tr>
+<tr class="td-hi">
+<td><strong>Google AI Studio ⭐</strong></td>
+<td>개발</td>
+<td>대화형 Build 모드로 앱 완성 · Canvas 실시간 미리보기</td>
+<td><span class="badge badge-green">쉬움</span></td>
+</tr>
+<tr>
+<td><strong>Google Antigravity</strong></td>
+<td>개발</td>
+<td>AI 에이전트가 코드 작성·실행·테스트까지 자동</td>
+<td><span class="badge badge-blue">보통</span></td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>개발</td>
+<td>AI 내장 코드 편집기 · 개발자 100만 명 이상 사용</td>
+<td><span class="badge badge-blue">보통</span></td>
+</tr>
+<tr>
+<td><strong>Claude Code</strong> <span class="badge badge-red" style="font-size:11px;vertical-align:middle">심화</span></td>
+<td>개발</td>
+<td>터미널에서 AI와 대화하며 코드 전체를 함께 작성</td>
+<td><span class="badge badge-red">어려움</span></td>
+</tr>
+</tbody>
+</table>
+<div class="card card-cyan" style="margin-top:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+<p style="font-size:18px;margin:0">이 수업에서는 <strong style="color:var(--cyan)">Google AI Studio</strong> 기준으로 진행합니다.<br/>
+<span style="font-size:15px;color:var(--gray)">이유: 무료 · Firebase와 궁합 좋음 · 비개발자도 쉽게 접근</span></p>
+<div style="text-align:center;flex-shrink:0">
+<div style="font-size:11px;color:var(--gray);margin-bottom:4px;font-family:'Space Mono',monospace">Gemini 3.1 Pro</div>
+<div style="background:linear-gradient(135deg,rgba(0,229,255,0.3),rgba(155,0,255,0.3));border:1px solid rgba(0,229,255,0.5);border-radius:10px;padding:6px 14px;font-size:13px;font-weight:700;color:white">✨ 2026년 2월 출시<br/><span style="font-size:11px;font-weight:400;color:var(--cyan)">추론 능력 대폭 향상</span></div>
+</div>
+</div>
+</div>
+<div class="slide" id="s13b">
+<div class="slide-header">
+<div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
+<h2>AI Studio — 실제 화면</h2>
+</div>
+<div class="neon-line"></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+<img alt="AI Studio 실제 화면" src="ai-studio-build.png" style="max-width:100%;max-height:70vh;object-fit:contain;border-radius:12px;border:1px solid var(--border)"/>
+<p style="font-size:15px;color:var(--gray);font-family:'Space Mono',monospace">aistudio.google.com</p>
+</div>
+</div>
+<div class="slide" id="s6b">
+<div class="grid-bg"></div>
+<div class="slide-header">
+<div class="tag tag-cyan">PART 1 · AI Studio</div>
+<h2>AI Studio로 만든 실제 앱 — MidiScore AI</h2>
+</div>
+<div class="neon-line"></div>
+<div style="flex:1;display:flex;gap:24px;align-items:flex-start;min-height:0">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace">① 시작 화면 — MIDI 파일 업로드</p>
+<div style="border:1px solid rgba(255,140,0,0.3);border-radius:14px;overflow:hidden;background:#0a0a1a">
+<img src="스크린샷 2026-04-21 오후 2.08.58.png" style="width:100%;height:auto;display:block"/>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace">② 분석 결과 — 화성·리듬 점수</p>
+<div style="border:1px solid rgba(0,229,255,0.3);border-radius:14px;overflow:hidden;background:#0a0a1a">
+<img src="스크린샷 2026-04-21 오후 2.09.40.png" style="width:100%;height:auto;display:block"/>
+</div>
+</div>
+<div style="width:210px;display:flex;flex-direction:column;gap:12px;justify-content:center">
+<div class="card card-good" style="padding:16px">
+<p style="font-size:14px;color:var(--green);line-height:1.8">✅ 코드 한 줄 없이<br/>AI Studio만으로 제작</p>
+</div>
+<div class="card card-cyan" style="padding:16px">
+<p style="font-size:14px;color:var(--cyan);line-height:1.8">💬 프롬프트 하나로<br/>시작 → 수정 반복<br/>→ 완성</p>
+</div>
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px">
+<p style="font-size:13px;color:var(--gray);line-height:1.7">오늘 우리가 만들<br/>음악 퀴즈도<br/>같은 방식입니다 →</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide" id="s15c">
+<div class="slide-header">
+<div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
+<h2>AI Studio Build 모드 — 처음 접속하면</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start;gap:28px">
+<div>
+<h4 style="color:white;margin-bottom:14px;font-size:18px">🖥️ 화면 구성</h4>
+<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px">
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:12px">
+<span style="font-size:22px;width:32px;text-align:center">1️⃣</span>
+<div><h4 style="font-size:16px;color:var(--cyan);margin-bottom:2px">Build 탭 선택</h4><p style="font-size:14px;color:var(--gray)">aistudio.google.com → 좌측 메뉴에서 Build 클릭</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.25);border-radius:12px">
+<span style="font-size:22px;width:32px;text-align:center">2️⃣</span>
+<div><h4 style="font-size:16px;color:var(--orange);margin-bottom:2px">프롬프트 입력</h4><p style="font-size:14px;color:var(--gray)">하단 채팅창에 설계서 붙여넣고 전송</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,45,138,0.08);border:1px solid rgba(255,45,138,0.25);border-radius:12px">
+<span style="font-size:22px;width:32px;text-align:center">3️⃣</span>
+<div><h4 style="font-size:16px;color:var(--pink);margin-bottom:2px">우측 미리보기 확인</h4><p style="font-size:14px;color:var(--gray)">Preview 창에서 앱이 바로 실행됨 — 직접 눌러서 테스트</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(155,0,255,0.08);border:1px solid rgba(155,0,255,0.25);border-radius:12px">
+<span style="font-size:22px;width:32px;text-align:center">4️⃣</span>
+<div><h4 style="font-size:16px;color:#C77DFF;margin-bottom:2px">수정이 필요하면</h4><p style="font-size:14px;color:var(--gray)">채팅창에 원하는 변경사항 입력 → 자동 반영</p></div>
+</div>
+</div>
+</div>
+<div>
+<div class="card card-pink" style="padding:22px;margin-bottom:16px">
+<h4 class="text-pink" style="font-size:19px;margin-bottom:14px">🛠️ Build 모드 주요 기능</h4>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="background:rgba(255,45,138,0.1);border-radius:10px;padding:10px 14px">
+<p style="font-size:15px;color:var(--soft)">🖥️ <strong style="color:white">Canvas 미리보기</strong> — 오른쪽 패널에서 앱이 실시간으로 실행됨</p>
+</div>
+<div style="background:rgba(255,45,138,0.1);border-radius:10px;padding:10px 14px">
+<p style="font-size:15px;color:var(--soft)">🗣️ <strong style="color:white">채팅으로 수정</strong> — 대화창에 원하는 변경사항 입력하면 코드 자동 반영</p>
+</div>
+<div style="background:rgba(255,45,138,0.1);border-radius:10px;padding:10px 14px">
+<p style="font-size:15px;color:var(--soft)">🖼️ <strong style="color:white">이미지 붙여넣기</strong> — 스크린샷이나 참고 이미지를 AI에게 직접 전달</p>
+</div>
+<div style="background:rgba(255,45,138,0.1);border-radius:10px;padding:10px 14px">
+<p style="font-size:15px;color:var(--soft)">🔗 <strong style="color:white">Share & Publish</strong> — 완성된 앱을 URL로 즉시 공유 가능</p>
+</div>
+</div>
+</div>
+<div class="card card-good" style="padding:14px">
+<p style="font-size:16px;color:var(--soft)">
+          💡 <strong style="color:var(--green)">무료로 사용 가능</strong> — Google 계정만 있으면 바로 시작
+        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide" id="s7">
+<div class="grid-bg"></div>
+<div style="margin-block:auto;max-width:860px;margin-inline:auto;text-align:center;z-index:1">
+<div class="tag tag-pink" style="margin-bottom:32px">바이브 코딩의 진짜 의미</div>
+<div class="two-col" style="text-align:left;margin-bottom:24px;gap:16px">
+<div class="card" style="padding:22px 28px;border-color:rgba(255,255,255,0.15)">
+<div style="color:var(--gray);font-weight:800;font-size:13px;letter-spacing:1px;margin-bottom:10px">💬 에이전트에게 그냥 맡기면</div>
+<p style="font-size:20px;color:var(--soft);font-family:'Space Mono',monospace">"AI야 음악 퀴즈 앱 만들어줘"</p>
+<p style="font-size:15px;color:var(--gray);margin-top:10px">→ 뭔가 나온다. 잘 될 수도 있다.<br/>단, 원하는 방향과 다를 수 있다.</p>
+</div>
+<div class="card card-good" style="padding:22px 28px">
+<div style="color:var(--green);font-weight:800;font-size:13px;letter-spacing:1px;margin-bottom:10px">✅ 방향을 함께 주면</div>
+<p style="font-size:18px;color:#A7F3D0;font-family:'Space Mono',monospace">"교수자/학습자 역할 구분,<br/>리더보드 포함, 1단계부터"</p>
+<p style="font-size:15px;color:var(--gray);margin-top:10px">→ 에이전트가 목표를 이해하고<br/>정확하게 실행한다.</p>
+</div>
+</div>
+<div style="padding:28px 36px;background:rgba(255,45,138,0.1);border-radius:20px;border:1.5px solid rgba(255,45,138,0.3)">
+<h3 style="font-size:28px;line-height:1.7">
+        바이브 코딩 = <span class="text-pink">AI 에이전트를 잘 쓰는 기술</span><br/>
+<span style="color:white;font-size:24px">"내가 방향을 잡고, AI가 실행한다"</span>
+</h3>
+</div>
+</div>
+</div>
+<div class="slide" id="s4">
+<div class="slide-header">
+<div class="tag tag-pink">PART 1 · 바이브 코딩</div>
+<h2>AI 에이전트와 잘 협업하는 법</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:center">
+<div>
+<div class="card card-good" style="padding:20px;margin-bottom:16px">
+<h4 class="text-green" style="font-size:17px;margin-bottom:10px">✅ AI 에이전트가 잘 하는 것</h4>
+<ul class="check-list" style="font-size:16px">
+<li>간단한 앱 — "해줘" 한 마디로 뚝딱</li>
+<li>코드 오류 스스로 찾아서 수정</li>
+<li>반복적인 작업 자동 처리</li>
+<li>디자인 수정·기능 추가 즉시 반영</li>
+</ul>
+</div>
+<div class="card" style="padding:20px;border-color:rgba(0,229,255,0.3)">
+<h4 class="text-cyan" style="font-size:17px;margin-bottom:10px">💡 방향을 잘 주면 더 잘 된다</h4>
+<ul class="check-list" style="font-size:16px">
+<li>사용자가 2종류면 — 각 역할을 명확히</li>
+<li>데이터가 공유되면 — 구조를 미리 정의</li>
+<li>화면이 여러 개면 — 흐름을 먼저 그리기</li>
+<li>원하는 결과가 구체적일수록 — 더 정확히 나옴</li>
+</ul>
+</div>
+</div>
+<div>
+<div class="quote" style="margin-bottom:22px;font-size:20px">
+        AI 에이전트는 이제 정말 잘 한다.<br/>
+<strong style="color:white">단, 어디로 가야 할지 모르면<br/>열심히 엉뚱한 방향으로 간다.</strong>
+</div>
+<div class="card" style="padding:20px;background:rgba(255,45,138,0.06);border-color:rgba(255,45,138,0.3)">
+<p style="font-size:18px;line-height:1.8;color:var(--soft)">
+          바이브 코딩의 핵심은<br/>
+<strong style="color:white">AI를 막는 것이 아니라<br/>방향을 잘 잡아주는 것</strong>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide" id="s5">
+<div class="slide-header">
+<div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
+<h2>바이브 코딩 — 두 가지 핵심 개념</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start">
+<div class="card" style="border-left:5px solid var(--cyan);height:100%">
+<div class="badge badge-cyan" style="margin-bottom:14px">① 먼저 설계, 그 다음 AI</div>
+<h4 class="text-cyan" style="margin-bottom:4px">PRD <span style="font-size:16px;font-weight:400;color:var(--gray)">— Product Requirements Document (제품 설계서)</span></h4><p style="font-size:12px;color:var(--gray);margin-bottom:14px;font-family:'Space Mono',monospace">Spec-Driven Development</p>
+<p style="font-size:20px;margin-bottom:16px">
+        코드를 짜기 전에 <strong style="color:white">"뭘 만들지"를 먼저 문서로 정리</strong>하고,<br/>
+        그 문서를 AI에게 넘겨서 코드를 만들게 한다
+      </p>
+<div class="card card-cyan" style="padding:14px">
+<p style="font-size:17px;color:var(--cyan);font-weight:700">건축으로 비유하면:</p>
+<p style="font-size:17px">설계도(PRD) 없이 집 짓기 시작하면?<br/>공사 중간에 전부 다시 해야 한다!</p>
+</div>
+</div>
+<div class="card" style="border-left:5px solid var(--purple);height:100%">
+<div class="badge" style="background:rgba(155,0,255,0.25);color:#C77DFF;margin-bottom:14px">② AI에게 잘 전달하기</div>
+<h4 style="color:#C77DFF;margin-bottom:12px">Context Engineering</h4>
+<p style="font-size:20px;margin-bottom:16px">
+<strong style="color:white">"AI에게 얼마나 정확하게 설명하느냐"</strong>가<br/>
+        결과물의 품질을 결정한다
+      </p>
+<div class="card card-purple" style="padding:14px">
+<p style="font-size:17px;color:#C77DFF;font-weight:700">직원에게 업무 지시하기:</p>
+<p style="font-size:17px">"알아서 해줘" vs "이 기획서 보고 1번부터 해줘"<br/>결과가 완전히 다르다!</p>
+</div>
+</div>
+</div>
+<div class="card card-dark" style="margin-top:18px;padding:18px">
+<div class="flow" style="justify-content:center;gap:24px">
+<div style="text-align:center"><p style="color:var(--gray);font-size:14px;margin-bottom:4px">설계</p><p style="color:white;font-size:19px;font-weight:700">뭘 만들지 정하기</p></div>
+<div class="flow-arrow" style="font-size:28px">+</div>
+<div style="text-align:center"><p style="color:var(--gray);font-size:14px;margin-bottom:4px">전달</p><p style="color:white;font-size:19px;font-weight:700">AI에게 정확히 넘기기</p></div>
+<div class="flow-arrow" style="font-size:28px">=</div>
+<div style="background:linear-gradient(135deg,rgba(255,45,138,0.25),rgba(155,0,255,0.25));padding:12px 20px;border-radius:12px;border:1px solid rgba(255,45,138,0.4)">
+<p style="color:white;font-size:19px;font-weight:800">🚀 서비스 완성</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide" id="s5_prd">
+<div class="slide-header">
+<div class="tag tag-orange">PART 1 · 바이브 코딩</div>
+<h2>PRD — AI에게 넘기는 설계 문서</h2>
+</div>
+<div class="neon-line"></div>
+<div class="card" style="border-left:5px solid var(--orange);padding:28px 32px;margin-bottom:20px">
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+<div class="badge badge-orange" style="font-size:16px;padding:6px 20px">PRD</div>
+<span style="color:var(--gray);font-size:18px">Product Requirements Document  =  <strong style="color:white">제품 설계서</strong></span>
+</div>
+<p style="font-size:22px;margin-bottom:20px">코드를 짜기 <strong style="color:white">전에</strong> 먼저 작성하는 문서.<br/><strong style="color:var(--orange)">"무엇을 만들고, 어떻게 동작해야 하는지"</strong>를 한 장에 정리합니다.</p>
+<div class="two-col" style="gap:16px">
+<div class="card" style="background:rgba(255,140,0,0.07);border:1px solid rgba(255,140,0,0.25);padding:16px 20px">
+<p style="color:var(--orange);font-weight:700;margin-bottom:6px">🏗️ 건축 비유</p>
+<p style="font-size:17px">설계도 없이 집 짓기 시작하면<br/>공사 중간에 <strong style="color:white">전부 다시 해야 합니다!</strong></p>
+</div>
+<div class="card" style="background:rgba(255,140,0,0.07);border:1px solid rgba(255,140,0,0.25);padding:16px 20px">
+<p style="color:var(--orange);font-weight:700;margin-bottom:6px">🤖 AI 코딩 비유</p>
+<p style="font-size:17px">PRD 없이 AI에게 시키면<br/><strong style="color:white">엉뚱한 앱</strong>이 나옵니다!</p>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:14px 24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px">
+<div class="badge" style="background:rgba(0,229,255,0.15);color:var(--cyan);font-size:13px;white-space:nowrap">SDD</div>
+<p style="font-size:16px;color:var(--gray)"><strong style="color:var(--soft)">Spec-Driven Development</strong> — PRD처럼 명세 문서를 먼저 쓰고 개발하는 방식을 부르는 개발자 용어입니다. 같은 개념이에요.</p>
+</div>
+</div>
+<div class="slide" id="s5c">
+<div class="slide-header">
+<div class="tag tag-orange">PART 1 · 바이브 코딩</div>
+<h2>PRD, AI랑 같이 써도 됩니다</h2>
+</div>
+<div class="neon-line"></div>
+<div style="display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="padding:12px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
+<p style="font-size:15px;color:var(--gray)">PRD를 처음부터 혼자 완성하려 하면 막힙니다. AI에게 초안을 부탁하고, 대화하면서 완성하는 것이 현실적입니다.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;flex:1">
+<div style="display:flex;gap:16px;align-items:flex-start;padding:14px 18px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.25);border-radius:12px">
+<div style="min-width:28px;height:28px;border-radius:50%;background:var(--cyan);color:#000;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center">1</div>
+<div><p style="font-weight:700;color:var(--cyan);margin-bottom:3px">아이디어를 말로 꺼내기</p><p style="font-size:16px;color:var(--soft)">"음악 퀴즈 앱을 만들고 싶어. 선생님이 문제를 내고 학생들이 실시간으로 푸는 방식이야."</p><p style="font-size:14px;color:var(--gray);margin-top:4px">완성도가 낮아도 괜찮습니다. 머릿속에 있는 것을 그대로 꺼내면 됩니다.</p></div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start;padding:14px 18px;background:rgba(255,140,0,0.06);border:1px solid rgba(255,140,0,0.25);border-radius:12px">
+<div style="min-width:28px;height:28px;border-radius:50%;background:var(--orange);color:#000;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center">2</div>
+<div><p style="font-weight:700;color:var(--orange);margin-bottom:3px">AI에게 PRD 초안 요청</p><p style="font-size:16px;color:var(--soft)">"이 내용으로 PRD를 작성해줘. 역할, 주요 기능, 데이터 구조 항목으로 나눠서."</p><p style="font-size:14px;color:var(--gray);margin-top:4px">AI가 빠진 부분을 채워 초안을 만들어줍니다.</p></div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start;padding:14px 18px;background:rgba(155,0,255,0.06);border:1px solid rgba(155,0,255,0.25);border-radius:12px">
+<div style="min-width:28px;height:28px;border-radius:50%;background:#9B00FF;color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center">3</div>
+<div><p style="font-weight:700;color:#C77DFF;margin-bottom:3px">AI 질문에 답하며 구체화</p><p style="font-size:16px;color:var(--soft)">"로그인 기능이 필요한가요?" 같은 질문이 옵니다.</p><p style="font-size:14px;color:var(--gray);margin-top:4px">모르면 "아직 모르겠어, 일반적인 방식으로 해줘"라고 해도 됩니다.</p></div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start;padding:14px 18px;background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.25);border-radius:12px">
+<div style="min-width:28px;height:28px;border-radius:50%;background:var(--green);color:#000;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center">4</div>
+<div><p style="font-weight:700;color:var(--green);margin-bottom:3px">PRD 검토 후 확정</p><p style="font-size:16px;color:var(--soft)">완성된 초안을 읽고, 틀린 부분만 수정합니다. 이 PRD가 이후 코딩의 기준이 됩니다.</p></div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s5a">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
-    <h2>설계서 — 이렇게 작성하면 됩니다</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start;gap:20px">
-    <div>
-      <div class="card card-cyan" style="padding:14px;margin-bottom:12px">
-        <h4 class="text-cyan" style="font-size:16px;margin-bottom:8px">📋 설계서 4가지 항목</h4>
-        <div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">1</div><div class="step-content"><h4 style="font-size:15px">한 줄 소개</h4></div></div>
-        <div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">2</div><div class="step-content"><h4 style="font-size:15px">사용자 종류와 역할</h4></div></div>
-        <div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">3</div><div class="step-content"><h4 style="font-size:15px">화면별 기능 목록</h4></div></div>
-        <div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">4</div><div class="step-content"><h4 style="font-size:15px">저장할 데이터</h4></div></div>
-      </div>
-      <div class="card card-good" style="padding:12px">
-        <p style="font-size:14px;color:var(--soft)">💡 완벽하지 않아도 됩니다.<br>AI가 읽고 질문할 수 있을 정도면 충분.</p>
-      </div>
-    </div>
-    <div>
-      <h4 style="color:white;margin-bottom:8px;font-size:16px">📄 음악 퀴즈 앱 설계서 예시</h4>
-      <div class="code-box" style="font-size:12px;line-height:1.7">1. 서비스 소개
+<div class="slide-header">
+<div class="tag tag-cyan">PART 1 · 바이브 코딩</div>
+<h2>설계서 — 이렇게 작성하면 됩니다</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start;gap:20px">
+<div>
+<div class="card card-cyan" style="padding:14px;margin-bottom:12px">
+<h4 class="text-cyan" style="font-size:16px;margin-bottom:8px">📋 설계서 4가지 항목</h4>
+<div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">1</div><div class="step-content"><h4 style="font-size:15px">한 줄 소개</h4></div></div>
+<div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">2</div><div class="step-content"><h4 style="font-size:15px">사용자 종류와 역할</h4></div></div>
+<div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">3</div><div class="step-content"><h4 style="font-size:15px">화면별 기능 목록</h4></div></div>
+<div class="step-row" style="padding:6px 0"><div class="step-num" style="width:28px;height:28px;font-size:13px">4</div><div class="step-content"><h4 style="font-size:15px">저장할 데이터</h4></div></div>
+</div>
+<div class="card card-good" style="padding:12px">
+<p style="font-size:14px;color:var(--soft)">💡 완벽하지 않아도 됩니다.<br/>AI가 읽고 질문할 수 있을 정도면 충분.</p>
+</div>
+</div>
+<div>
+<h4 style="color:white;margin-bottom:8px;font-size:16px">📄 음악 퀴즈 앱 설계서 예시</h4>
+<div class="code-box" style="font-size:12px;line-height:1.7">1. 서비스 소개
 AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 교수자가 만들고, 학습자가 풀며 경쟁한다.
 
@@ -516,834 +799,639 @@ AI가 음악 퀴즈를 자동 생성하는 플랫폼.
 - quizzes: 제목, 장르, 공개여부, 문제 배열
 - scores: 퀴즈ID, 닉네임, 점수, 제출시각
 - sessions: 닉네임, 역할</div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 05b 좋은 프롬프트 공식 ══ -->
+</div>
+</div>
 <div class="slide" id="s5b">
-  <div class="slide-header">
-    <div class="tag tag-purple">PART 1 · 바이브 코딩</div>
-    <h2>좋은 프롬프트 공식 — Context Engineering</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start;gap:24px">
-    <div>
-      <h4 style="color:white;margin-bottom:10px;font-size:17px">📐 프롬프트 4요소</h4>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
-        <div style="padding:10px 14px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.3);border-radius:10px">
-          <p style="font-size:13px;color:var(--cyan);font-weight:700">① 나는 누구인가 <span style="color:var(--soft);font-weight:400">— 비전공자, 처음 만들어봄</span></p>
-        </div>
-        <div style="padding:10px 14px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.3);border-radius:10px">
-          <p style="font-size:13px;color:var(--orange);font-weight:700">② 무엇을 만드나 <span style="color:var(--soft);font-weight:400">— 설계서 전체 (역할·기능·데이터)</span></p>
-        </div>
-        <div style="padding:10px 14px;background:rgba(155,0,255,0.08);border:1px solid rgba(155,0,255,0.3);border-radius:10px">
-          <p style="font-size:13px;color:#C77DFF;font-weight:700">③ 지금 뭘 원하나 <span style="color:var(--soft);font-weight:400">— 단계별 지시, 지금은 1단계만</span></p>
-        </div>
-        <div style="padding:10px 14px;background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.3);border-radius:10px">
-          <p style="font-size:13px;color:var(--green);font-weight:700">④ 제약 조건 <span style="color:var(--soft);font-weight:400">— 아직 코드 만들지 마 / HTML 한 파일로</span></p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="padding:16px;margin-bottom:14px;border-color:rgba(255,255,255,0.15)">
-        <p style="font-size:13px;color:var(--gray);font-weight:700;margin-bottom:8px">💬 이렇게 시작하면</p>
-        <p style="font-size:16px;color:var(--soft);font-family:'Space Mono',monospace">"음악 퀴즈 앱 만들어줘"</p>
-        <p style="font-size:13px;color:var(--gray);margin-top:6px">→ 뭔가 나오긴 함 · 역할 구분 없음 · 수정하다 꼬일 수 있음</p>
-      </div>
-      <div class="card card-good" style="padding:16px;margin-bottom:14px">
-        <p style="font-size:13px;color:var(--green);font-weight:700;margin-bottom:8px">✅ 4요소 갖추면</p>
-        <div class="code-box" style="font-size:12px;line-height:1.75;padding:12px">"나는 비전공자야. ← ①
+<div class="slide-header">
+<div class="tag tag-purple">PART 1 · 바이브 코딩</div>
+<h2>프롬프트 작성 가이드 — Context Engineering</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start;gap:24px">
+<div>
+<h4 style="color:white;margin-bottom:10px;font-size:17px">📐 좋은 프롬프트의 4가지 요소</h4>
+<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+<div style="padding:10px 14px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.3);border-radius:10px">
+<p style="font-size:13px;color:var(--cyan);font-weight:700">① 내 상황 <span style="color:var(--soft);font-weight:400">— "나는 비전공자야, 코딩 처음이야"</span></p>
+</div>
+<div style="padding:10px 14px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.3);border-radius:10px">
+<p style="font-size:13px;color:var(--orange);font-weight:700">② 만들 것 <span style="color:var(--soft);font-weight:400">— PRD 전체 (역할·기능·데이터구조)</span></p>
+</div>
+<div style="padding:10px 14px;background:rgba(155,0,255,0.08);border:1px solid rgba(155,0,255,0.3);border-radius:10px">
+<p style="font-size:13px;color:#C77DFF;font-weight:700">③ 지금 할 일 <span style="color:var(--soft);font-weight:400">— "1단계만 해줘, 단계별로 가자"</span></p>
+</div>
+<div style="padding:10px 14px;background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.3);border-radius:10px">
+<p style="font-size:13px;color:var(--green);font-weight:700">④ 제약 조건 <span style="color:var(--soft);font-weight:400">— "코드 아직 만들지 마 / HTML 한 파일로"</span></p>
+</div>
+</div>
+</div>
+<div>
+<div class="card" style="padding:16px;margin-bottom:14px;border-color:rgba(255,255,255,0.15)">
+<p style="font-size:13px;color:var(--gray);font-weight:700;margin-bottom:8px">💬 이렇게 시작하면</p>
+<p style="font-size:16px;color:var(--soft);font-family:'Space Mono',monospace">"음악 퀴즈 앱 만들어줘"</p>
+<p style="font-size:13px;color:var(--gray);margin-top:6px">→ 뭔가 나오긴 함 · 역할 구분 없음 · 수정하다 꼬일 수 있음</p>
+</div>
+<div class="card card-good" style="padding:16px;margin-bottom:14px">
+<p style="font-size:13px;color:var(--green);font-weight:700;margin-bottom:8px">✅ 4요소 갖추면</p>
+<div class="code-box" style="font-size:12px;line-height:1.75;padding:12px">"나는 비전공자야. ← ①
 음악 퀴즈 앱을 만들려고 해.
 [설계서 붙여넣기] ← ②
 아직 코드 만들지 마. ← ④
 설계서 읽고 질문해줘." ← ③</div>
-      </div>
-      <div class="card" style="padding:12px;background:rgba(255,215,0,0.06);border-color:rgba(255,215,0,0.25)">
-        <p style="font-size:15px;color:var(--gold)">💡 AI가 질문을 돌려준다 = 좋은 프롬프트의 신호</p>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 06 2026 주요 도구 ══ -->
-<div class="slide" id="s6">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 1 · 바이브 코딩</div>
-    <h2>2026년 주요 도구 한눈에 보기</h2>
-  </div>
-  <div class="neon-line"></div>
-  <table>
-    <thead><tr><th>도구</th><th>무엇에 쓰나</th><th>특징</th><th>난이도</th></tr></thead>
-    <tbody>
-      <tr class="td-hi">
-        <td><strong>Google Stitch ⭐</strong></td>
-        <td>디자인</td>
-        <td>말로 설명하면 AI가 앱 화면을 그려줌</td>
-        <td><span class="badge badge-green">매우 쉬움</span></td>
-      </tr>
-      <tr class="td-hi">
-        <td><strong>Google AI Studio ⭐</strong></td>
-        <td>개발</td>
-        <td>대화 + Annotation 모드로 앱 완성 · <span style="color:var(--cyan)">Gemini 3.1 Pro 탑재</span></td>
-        <td><span class="badge badge-green">쉬움</span></td>
-      </tr>
-      <tr>
-        <td><strong>Lovable</strong></td>
-        <td>디자인+개발</td>
-        <td>프롬프트 하나로 완성도 높은 앱 즉시 생성</td>
-        <td><span class="badge badge-green">쉬움</span></td>
-      </tr>
-      <tr>
-        <td><strong>Bolt.new</strong></td>
-        <td>개발</td>
-        <td>브라우저에서 바로 앱 생성·배포</td>
-        <td><span class="badge badge-green">쉬움</span></td>
-      </tr>
-      <tr>
-        <td><strong>Google Antigravity</strong> <span class="badge badge-red" style="font-size:11px;vertical-align:middle">심화</span></td>
-        <td>개발</td>
-        <td>AI 에이전트가 코드 작성·실행·테스트까지 자동</td>
-        <td><span class="badge badge-blue">보통</span></td>
-      </tr>
-      <tr>
-        <td><strong>Cursor</strong></td>
-        <td>개발</td>
-        <td>코드 편집기에 AI가 내장된 형태, 100만 사용자</td>
-        <td><span class="badge badge-blue">보통</span></td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="card card-cyan" style="margin-top:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:20px">
-    <p style="font-size:18px;margin:0">이 수업에서는 <strong style="color:var(--cyan)">Google AI Studio + Gemini 3.1 Pro</strong> 기준으로 진행합니다.<br>
-    <span style="font-size:15px;color:var(--gray)">이유: 무료 · Firebase와 궁합 좋음 · 비개발자도 쉽게 접근</span></p>
-    <div style="text-align:center;flex-shrink:0">
-      <div style="font-size:11px;color:var(--gray);margin-bottom:4px;font-family:'Space Mono',monospace">Gemini 3.1 Pro</div>
-      <div style="background:linear-gradient(135deg,rgba(0,229,255,0.3),rgba(155,0,255,0.3));border:1px solid rgba(0,229,255,0.5);border-radius:10px;padding:6px 14px;font-size:13px;font-weight:700;color:white">✨ 2026년 2월 출시<br><span style="font-size:11px;font-weight:400;color:var(--cyan)">추론 능력 대폭 향상</span></div>
-    </div>
-  </div>
+<div class="card" style="padding:12px;background:rgba(255,215,0,0.06);border-color:rgba(255,215,0,0.25)">
+<p style="font-size:15px;color:var(--gold)">💡 AI가 질문을 돌려준다 = 좋은 프롬프트의 신호</p>
 </div>
-
-<!-- ══ 06b AI Studio 예시 앱 ══ -->
-<div class="slide" id="s6b">
-  <div class="grid-bg"></div>
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 1 · AI Studio</div>
-    <h2>AI Studio로 만든 실제 앱 — MidiScore AI</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div style="flex:1;display:flex;gap:24px;align-items:flex-start;min-height:0">
-    <div style="flex:1;display:flex;flex-direction:column;gap:10px">
-      <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace">① 시작 화면 — MIDI 파일 업로드</p>
-      <div style="border:1px solid rgba(255,140,0,0.3);border-radius:14px;overflow:hidden;background:#0a0a1a">
-        <img src="스크린샷 2026-04-21 오후 2.08.58.png" style="width:100%;height:auto;display:block">
-      </div>
-    </div>
-    <div style="flex:1;display:flex;flex-direction:column;gap:10px">
-      <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace">② 분석 결과 — 화성·리듬 점수</p>
-      <div style="border:1px solid rgba(0,229,255,0.3);border-radius:14px;overflow:hidden;background:#0a0a1a">
-        <img src="스크린샷 2026-04-21 오후 2.09.40.png" style="width:100%;height:auto;display:block">
-      </div>
-    </div>
-    <div style="width:210px;display:flex;flex-direction:column;gap:12px;justify-content:center">
-      <div class="card card-good" style="padding:16px">
-        <p style="font-size:14px;color:var(--green);line-height:1.8">✅ 코드 한 줄 없이<br>AI Studio만으로 제작</p>
-      </div>
-      <div class="card card-cyan" style="padding:16px">
-        <p style="font-size:14px;color:var(--cyan);line-height:1.8">💬 프롬프트 하나로<br>시작 → 수정 반복<br>→ 완성</p>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px">
-        <p style="font-size:13px;color:var(--gray);line-height:1.7">오늘 우리가 만들<br>음악 퀴즈도<br>같은 방식입니다 →</p>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 07 기도 코딩 vs 바이브 코딩 ══ -->
-<div class="slide" id="s7">
-  <div class="grid-bg"></div>
-  <div style="margin-block:auto;max-width:860px;margin-inline:auto;text-align:center;z-index:1">
-    <div class="tag tag-pink" style="margin-bottom:32px">바이브 코딩의 진짜 의미</div>
-    <div class="two-col" style="text-align:left;margin-bottom:24px;gap:16px">
-      <div class="card" style="padding:22px 28px;border-color:rgba(255,255,255,0.15)">
-        <div style="color:var(--gray);font-weight:800;font-size:13px;letter-spacing:1px;margin-bottom:10px">💬 에이전트에게 그냥 맡기면</div>
-        <p style="font-size:20px;color:var(--soft);font-family:'Space Mono',monospace">"AI야 음악 퀴즈 앱 만들어줘"</p>
-        <p style="font-size:15px;color:var(--gray);margin-top:10px">→ 뭔가 나온다. 잘 될 수도 있다.<br>단, 원하는 방향과 다를 수 있다.</p>
-      </div>
-      <div class="card card-good" style="padding:22px 28px">
-        <div style="color:var(--green);font-weight:800;font-size:13px;letter-spacing:1px;margin-bottom:10px">✅ 방향을 함께 주면</div>
-        <p style="font-size:18px;color:#A7F3D0;font-family:'Space Mono',monospace">"교수자/학습자 역할 구분,<br>리더보드 포함, 1단계부터"</p>
-        <p style="font-size:15px;color:var(--gray);margin-top:10px">→ 에이전트가 목표를 이해하고<br>정확하게 실행한다.</p>
-      </div>
-    </div>
-    <div style="padding:28px 36px;background:rgba(255,45,138,0.1);border-radius:20px;border:1.5px solid rgba(255,45,138,0.3)">
-      <h3 style="font-size:28px;line-height:1.7">
-        바이브 코딩 = <span class="text-pink">AI 에이전트를 잘 쓰는 기술</span><br>
-        <span style="color:white;font-size:24px">"내가 방향을 잡고, AI가 실행한다"</span>
-      </h3>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 08 PART 2 표지 ══ -->
+</div>
 <div class="slide" id="s8">
-  <div class="grid-bg"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1">
-    <div class="part-badge">PART 2</div>
-    <h2 style="font-size:58px;margin-bottom:20px">우리가 <span class="text-neon">만들 것</span></h2>
-    <p class="lead text-gray" style="max-width:620px;margin:0 auto 32px">
-      기술 얘기는 잠깐 내려놓고<br>
+<div class="grid-bg"></div>
+<div style="margin-block:auto;text-align:center;z-index:1">
+<div class="part-badge">PART 2</div>
+<h2 style="font-size:58px;margin-bottom:20px">우리가 <span class="text-neon">만들 것</span></h2>
+<p class="lead text-gray" style="max-width:620px;margin:0 auto 32px">
+      기술 얘기는 잠깐 내려놓고<br/>
       어떤 서비스를 만드는지 먼저 살펴보자
     </p>
-    <div class="flow" style="justify-content:center;gap:12px">
-      <div class="flow-item">🎓 교수자가 퀴즈를 만든다</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">🎮 학습자가 풀어본다</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">🏆 함께 순위를 본다</div>
-    </div>
-  </div>
+<div class="flow" style="justify-content:center;gap:12px">
+<div class="flow-item">🎓 교수자가 퀴즈를 만든다</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">🎮 학습자가 풀어본다</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">🏆 함께 순위를 본다</div>
 </div>
-
-<!-- ══ 09 프로젝트 소개 ══ -->
+</div>
+</div>
 <div class="slide" id="s9">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 2 · 우리가 만들 것</div>
-    <h2>이런 상황이 있었다</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:center">
-    <div>
-      <div class="quote" style="margin-bottom:24px;font-size:21px">
-        "음악 이론 수업마다 퀴즈를 손으로 만들었어요.<br>
-        문제 하나 만드는 데 10분, 10문제면 1시간 반이에요.<br>
-        <strong style="color:var(--pink)">AI가 대신 만들어줄 수 없을까요?</strong>"
-      </div>
-      <div class="card" style="margin-bottom:16px;padding:20px">
-        <h4 style="font-size:19px;margin-bottom:12px">😩 기존의 불편함</h4>
-        <div class="step-row" style="padding:10px 0">
-          <div class="step-num" style="width:38px;height:38px;font-size:16px;background:rgba(255,82,82,0.5)">1</div>
-          <div class="step-content"><h4 style="font-size:17px">퀴즈 제작에 시간이 너무 많이 걸린다</h4></div>
-        </div>
-        <div class="step-row" style="padding:10px 0">
-          <div class="step-num" style="width:38px;height:38px;font-size:16px;background:rgba(255,82,82,0.5)">2</div>
-          <div class="step-content"><h4 style="font-size:17px">학습자가 결과를 바로 못 본다</h4></div>
-        </div>
-        <div class="step-row" style="padding:10px 0">
-          <div class="step-num" style="width:38px;height:38px;font-size:16px;background:rgba(255,82,82,0.5)">3</div>
-          <div class="step-content"><h4 style="font-size:17px">누가 잘하고 있는지 파악이 안 된다</h4></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card card-good" style="padding:22px;margin-bottom:16px">
-        <h4 class="text-green" style="margin-bottom:14px;font-size:19px">✅ 우리가 만들 솔루션</h4>
-        <div class="step-row" style="padding:10px 0">
-          <div class="step-num" style="width:38px;height:38px;font-size:16px">1</div>
-          <div class="step-content"><h4 style="font-size:17px">AI가 5분 만에 퀴즈를 자동 생성</h4><p>장르·난이도 입력하면 바로 완성</p></div>
-        </div>
-        <div class="step-row" style="padding:10px 0">
-          <div class="step-num" style="width:38px;height:38px;font-size:16px">2</div>
-          <div class="step-content"><h4 style="font-size:17px">풀면 바로 점수 확인</h4><p>정답·오답 즉시 피드백</p></div>
-        </div>
-        <div class="step-row" style="padding:10px 0">
-          <div class="step-num" style="width:38px;height:38px;font-size:16px">3</div>
-          <div class="step-content"><h4 style="font-size:17px">실시간 리더보드</h4><p>경쟁하며 학습 동기 부여</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-orange">PART 2 · 우리가 만들 것</div>
+<h2>이런 상황이 있었다</h2>
 </div>
-
-<!-- ══ 09b 결과물 미리보기 ══ -->
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:center">
+<div>
+<div class="quote" style="margin-bottom:24px;font-size:21px">
+        "음악 이론 수업마다 퀴즈를 직접 만들어야 하는데,<br/>
+        매번 시간도 걸리고 문제 다양하게 내기도 쉽지 않아요.<br/>
+<strong style="color:var(--pink)">AI가 도와줄 수 없을까요?</strong>"
+      </div>
+<div class="card" style="margin-bottom:16px;padding:20px">
+<h4 style="font-size:19px;margin-bottom:12px">😩 기존의 불편함</h4>
+<div class="step-row" style="padding:10px 0">
+<div class="step-num" style="width:38px;height:38px;font-size:16px;background:rgba(255,82,82,0.5)">1</div>
+<div class="step-content"><h4 style="font-size:17px">퀴즈 제작에 시간이 너무 많이 걸린다</h4></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div class="step-num" style="width:38px;height:38px;font-size:16px;background:rgba(255,82,82,0.5)">2</div>
+<div class="step-content"><h4 style="font-size:17px">학습자가 결과를 바로 못 본다</h4></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div class="step-num" style="width:38px;height:38px;font-size:16px;background:rgba(255,82,82,0.5)">3</div>
+<div class="step-content"><h4 style="font-size:17px">누가 잘하고 있는지 파악이 안 된다</h4></div>
+</div>
+</div>
+</div>
+<div>
+<div class="card card-good" style="padding:22px;margin-bottom:16px">
+<h4 class="text-green" style="margin-bottom:14px;font-size:19px">✅ 우리가 만들 솔루션</h4>
+<div class="step-row" style="padding:10px 0">
+<div class="step-num" style="width:38px;height:38px;font-size:16px">1</div>
+<div class="step-content"><h4 style="font-size:17px">AI가 5분 만에 퀴즈를 자동 생성</h4><p>장르·난이도 입력하면 바로 완성</p></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div class="step-num" style="width:38px;height:38px;font-size:16px">2</div>
+<div class="step-content"><h4 style="font-size:17px">풀면 바로 점수 확인</h4><p>정답·오답 즉시 피드백</p></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div class="step-num" style="width:38px;height:38px;font-size:16px">3</div>
+<div class="step-content"><h4 style="font-size:17px">실시간 리더보드</h4><p>경쟁하며 학습 동기 부여</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s9b">
-  <div class="grid-bg"></div>
-  <div class="slide-header">
-    <div class="tag tag-pink">PART 2 · 결과물</div>
-    <h2>완성하면 이렇게 됩니다</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div style="flex:1;display:flex;gap:20px;align-items:flex-start;min-height:0">
-    <div style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace;margin-bottom:4px">① 역할 선택 화면</p>
-      <div style="border:1px solid rgba(0,229,255,0.25);border-radius:14px;overflow:hidden;background:#0a0a1a">
-        <img src="스크린샷 2026-04-21 오후 1.58.23.png" style="width:100%;height:auto;display:block">
-      </div>
-    </div>
-    <div style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace;margin-bottom:4px">② 교수자 대시보드</p>
-      <div style="border:1px solid rgba(255,140,0,0.25);border-radius:14px;overflow:hidden;background:#0a0a1a">
-        <img src="스크린샷 2026-04-21 오후 1.58.34.png" style="width:100%;height:auto;display:block">
-      </div>
-    </div>
-    <div style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace;margin-bottom:4px">③ 퀴즈 풀기 화면</p>
-      <div style="border:1px solid rgba(255,45,138,0.25);border-radius:14px;overflow:hidden;background:#0a0a1a">
-        <img src="스크린샷 2026-04-21 오후 1.58.13.png" style="width:100%;height:auto;display:block">
-      </div>
-    </div>
-  </div>
-  <div style="margin-top:16px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:12px 20px;text-align:center">
-    <p style="font-size:14px;color:var(--cyan)">이 모든 화면을 <strong>바이브 코딩으로</strong> 직접 만듭니다</p>
-  </div>
+<div class="grid-bg"></div>
+<div class="slide-header">
+<div class="tag tag-pink">PART 2 · 결과물</div>
+<h2>완성하면 이렇게 됩니다</h2>
 </div>
-
-<!-- ══ 10 누가 쓰는가 ══ -->
+<div class="neon-line"></div>
+<div style="flex:1;display:flex;gap:20px;align-items:flex-start;min-height:0">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace;margin-bottom:4px">① 역할 선택 화면</p>
+<div style="border:1px solid rgba(0,229,255,0.25);border-radius:14px;overflow:hidden;background:#0a0a1a">
+<img src="스크린샷 2026-04-21 오후 1.58.23.png" style="width:100%;height:auto;display:block"/>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace;margin-bottom:4px">② 교수자 대시보드</p>
+<div style="border:1px solid rgba(255,140,0,0.25);border-radius:14px;overflow:hidden;background:#0a0a1a">
+<img src="스크린샷 2026-04-21 오후 1.58.34.png" style="width:100%;height:auto;display:block"/>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);font-family:'Space Mono',monospace;margin-bottom:4px">③ 퀴즈 풀기 화면</p>
+<div style="border:1px solid rgba(255,45,138,0.25);border-radius:14px;overflow:hidden;background:#0a0a1a">
+<img src="스크린샷 2026-04-21 오후 1.58.13.png" style="width:100%;height:auto;display:block"/>
+</div>
+</div>
+</div>
+<div style="margin-top:16px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:12px 20px;text-align:center">
+<p style="font-size:14px;color:var(--cyan)">이 모든 화면을 <strong>바이브 코딩으로</strong> 직접 만듭니다</p>
+</div>
+</div>
 <div class="slide" id="s10">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 2 · 우리가 만들 것</div>
-    <h2>누가 이 서비스를 쓰는가?</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start;gap:32px">
-    <div class="card" style="border:2px solid rgba(0,229,255,0.4);padding:28px;height:100%">
-      <div style="text-align:center;margin-bottom:20px">
-        <span style="font-size:56px">👨‍🏫</span>
-        <div class="tag tag-cyan" style="display:block;text-align:center;margin:10px auto 0;width:fit-content">교수자</div>
-      </div>
-      <h4 class="text-cyan" style="margin-bottom:16px;text-align:center">퀴즈를 만드는 사람</h4>
-      <div class="step-row" style="padding:10px 0">
-        <div style="font-size:22px;width:36px;text-align:center">✏️</div>
-        <div class="step-content"><h4 style="font-size:17px">퀴즈 주제·난이도 설정</h4><p>장르, 문항 수 등 입력</p></div>
-      </div>
-      <div class="step-row" style="padding:10px 0">
-        <div style="font-size:22px;width:36px;text-align:center">🤖</div>
-        <div class="step-content"><h4 style="font-size:17px">AI가 문제 생성 → 내가 검토</h4><p>잘못된 내용 수정 가능</p></div>
-      </div>
-      <div class="step-row" style="padding:10px 0">
-        <div style="font-size:22px;width:36px;text-align:center">📢</div>
-        <div class="step-content"><h4 style="font-size:17px">확인 후 학습자에게 공개</h4><p>공개/비공개 버튼 하나로 제어</p></div>
-      </div>
-      <div style="margin-top:14px;background:rgba(0,229,255,0.08);border-radius:12px;padding:12px 16px">
-        <p style="font-size:15px;color:var(--cyan)">💡 비밀번호로 교수자 권한 구분</p>
-      </div>
-    </div>
-    <div class="card" style="border:2px solid rgba(255,140,0,0.4);padding:28px;height:100%">
-      <div style="text-align:center;margin-bottom:20px">
-        <span style="font-size:56px">🎮</span>
-        <div class="tag tag-orange" style="display:block;text-align:center;margin:10px auto 0;width:fit-content">학습자</div>
-      </div>
-      <h4 class="text-orange" style="margin-bottom:16px;text-align:center">퀴즈를 푸는 사람</h4>
-      <div class="step-row" style="padding:10px 0">
-        <div style="font-size:22px;width:36px;text-align:center">🏷️</div>
-        <div class="step-content"><h4 style="font-size:17px">닉네임만 입력하면 바로 시작</h4><p>회원가입 불필요</p></div>
-      </div>
-      <div class="step-row" style="padding:10px 0">
-        <div style="font-size:22px;width:36px;text-align:center">📋</div>
-        <div class="step-content"><h4 style="font-size:17px">퀴즈 목록에서 골라서 풀기</h4><p>장르·난이도 확인 후 선택</p></div>
-      </div>
-      <div class="step-row" style="padding:10px 0">
-        <div style="font-size:22px;width:36px;text-align:center">🏆</div>
-        <div class="step-content"><h4 style="font-size:17px">점수 확인 & 리더보드 보기</h4><p>내 순위가 실시간으로 표시</p></div>
-      </div>
-      <div style="margin-top:14px;background:rgba(255,140,0,0.08);border-radius:12px;padding:12px 16px">
-        <p style="font-size:15px;color:var(--orange)">💡 닉네임만으로 참여 — 진입 장벽 없음</p>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-cyan">PART 2 · 우리가 만들 것</div>
+<h2>누가 이 서비스를 쓰는가?</h2>
 </div>
-
-<!-- ══ 11 전체 사용 흐름 ══ -->
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start;gap:32px">
+<div class="card" style="border:2px solid rgba(0,229,255,0.4);padding:28px;height:100%">
+<div style="text-align:center;margin-bottom:20px">
+<span style="font-size:56px">👨‍🏫</span>
+<div class="tag tag-cyan" style="display:block;text-align:center;margin:10px auto 0;width:fit-content">교수자</div>
+</div>
+<h4 class="text-cyan" style="margin-bottom:16px;text-align:center">퀴즈를 만드는 사람</h4>
+<div class="step-row" style="padding:10px 0">
+<div style="font-size:22px;width:36px;text-align:center">✏️</div>
+<div class="step-content"><h4 style="font-size:17px">퀴즈 주제·난이도 설정</h4><p>장르, 문항 수 등 입력</p></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div style="font-size:22px;width:36px;text-align:center">🤖</div>
+<div class="step-content"><h4 style="font-size:17px">AI가 문제 생성 → 내가 검토</h4><p>잘못된 내용 수정 가능</p></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div style="font-size:22px;width:36px;text-align:center">📢</div>
+<div class="step-content"><h4 style="font-size:17px">확인 후 학습자에게 공개</h4><p>공개/비공개 버튼 하나로 제어</p></div>
+</div>
+<div style="margin-top:14px;background:rgba(0,229,255,0.08);border-radius:12px;padding:12px 16px">
+<p style="font-size:15px;color:var(--cyan)">💡 비밀번호로 교수자 권한 구분</p>
+</div>
+</div>
+<div class="card" style="border:2px solid rgba(255,140,0,0.4);padding:28px;height:100%">
+<div style="text-align:center;margin-bottom:20px">
+<span style="font-size:56px">🎮</span>
+<div class="tag tag-orange" style="display:block;text-align:center;margin:10px auto 0;width:fit-content">학습자</div>
+</div>
+<h4 class="text-orange" style="margin-bottom:16px;text-align:center">퀴즈를 푸는 사람</h4>
+<div class="step-row" style="padding:10px 0">
+<div style="font-size:22px;width:36px;text-align:center">🏷️</div>
+<div class="step-content"><h4 style="font-size:17px">닉네임만 입력하면 바로 시작</h4><p>회원가입 불필요</p></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div style="font-size:22px;width:36px;text-align:center">📋</div>
+<div class="step-content"><h4 style="font-size:17px">퀴즈 목록에서 골라서 풀기</h4><p>장르·난이도 확인 후 선택</p></div>
+</div>
+<div class="step-row" style="padding:10px 0">
+<div style="font-size:22px;width:36px;text-align:center">🏆</div>
+<div class="step-content"><h4 style="font-size:17px">점수 확인 &amp; 리더보드 보기</h4><p>내 순위가 실시간으로 표시</p></div>
+</div>
+<div style="margin-top:14px;background:rgba(255,140,0,0.08);border-radius:12px;padding:12px 16px">
+<p style="font-size:15px;color:var(--orange)">💡 닉네임만으로 참여 — 진입 장벽 없음</p>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s11">
-  <div class="slide-header">
-    <div class="tag tag-purple">PART 2 · 우리가 만들 것</div>
-    <h2>서비스 전체 흐름</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px">
-    <div>
-      <p style="font-size:14px;font-weight:700;letter-spacing:2px;color:var(--cyan);margin-bottom:12px;font-family:'Space Mono',monospace">👨‍🏫 교수자 흐름</p>
-      <div class="flow" style="gap:8px">
-        <div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">① 입장 (닉네임 + 비밀번호 입력)</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">② 퀴즈 설정 입력</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">③ AI 퀴즈 생성</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">④ 검토 & 수정</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(0,229,255,0.25);border-color:rgba(0,229,255,0.6);color:var(--cyan);font-weight:900">⑤ 저장 & 공개</div>
-      </div>
-    </div>
-    <div style="height:1px;background:rgba(255,255,255,0.08)"></div>
-    <div>
-      <p style="font-size:14px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:12px;font-family:'Space Mono',monospace">🎮 학습자 흐름</p>
-      <div class="flow" style="gap:8px">
-        <div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">① 입장 (닉네임 입력)</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">② 퀴즈 목록 확인</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">③ 퀴즈 선택</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">④ 문제 풀기</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(255,140,0,0.25);border-color:rgba(255,140,0,0.6);color:var(--orange);font-weight:900">⑤ 점수 확인</div>
-      </div>
-    </div>
-    <div style="height:1px;background:rgba(255,255,255,0.08)"></div>
-    <div>
-      <p style="font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:12px;font-family:'Space Mono',monospace">🏆 공통 기능</p>
-      <div class="flow" style="gap:8px">
-        <div class="flow-item" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.3)">퀴즈별 리더보드</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.3)">실시간 순위 업데이트</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item" style="background:rgba(255,215,0,0.25);border-color:rgba(255,215,0,0.6);color:var(--gold);font-weight:900">🥇🥈🥉 TOP 3 표시</div>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-purple">PART 2 · 우리가 만들 것</div>
+<h2>서비스 전체 흐름</h2>
 </div>
-
-<!-- ══ 12 교수자 화면 소개 ══ -->
+<div class="neon-line"></div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px">
+<div>
+<p style="font-size:14px;font-weight:700;letter-spacing:2px;color:var(--cyan);margin-bottom:12px;font-family:'Space Mono',monospace">👨‍🏫 교수자 흐름</p>
+<div class="flow" style="gap:8px">
+<div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">① 입장 (닉네임 + 비밀번호 입력)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">② 퀴즈 설정 입력</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">③ AI 퀴즈 생성</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.3)">④ 검토 &amp; 수정</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(0,229,255,0.25);border-color:rgba(0,229,255,0.6);color:var(--cyan);font-weight:900">⑤ 저장 &amp; 공개</div>
+</div>
+</div>
+<div style="height:1px;background:rgba(255,255,255,0.08)"></div>
+<div>
+<p style="font-size:14px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:12px;font-family:'Space Mono',monospace">🎮 학습자 흐름</p>
+<div class="flow" style="gap:8px">
+<div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">① 입장 (닉네임 입력)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">② 퀴즈 목록 확인</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">③ 퀴즈 선택</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.3)">④ 문제 풀기</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,140,0,0.25);border-color:rgba(255,140,0,0.6);color:var(--orange);font-weight:900">⑤ 점수 확인</div>
+</div>
+</div>
+<div style="height:1px;background:rgba(255,255,255,0.08)"></div>
+<div>
+<p style="font-size:14px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:12px;font-family:'Space Mono',monospace">🏆 공통 기능</p>
+<div class="flow" style="gap:8px">
+<div class="flow-item" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.3)">퀴즈별 리더보드</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.3)">실시간 순위 업데이트</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,215,0,0.25);border-color:rgba(255,215,0,0.6);color:var(--gold);font-weight:900">🥇🥈🥉 TOP 3 표시</div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s12">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 2 · 우리가 만들 것</div>
-    <h2>교수자 화면 — 이렇게 생겼어요</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start">
-    <div>
-      <div class="card card-cyan" style="padding:22px;margin-bottom:16px">
-        <h4 class="text-cyan" style="margin-bottom:14px;font-size:19px">✏️ 퀴즈 만들기 화면</h4>
-        <ul class="check-list">
-          <li><strong style="color:white">퀴즈 제목</strong> 입력칸</li>
-          <li><strong style="color:white">장르 선택</strong> — 클래식 / 재즈 / K-POP 등</li>
-          <li><strong style="color:white">난이도 선택</strong> — 초급 / 중급 / 고급</li>
-          <li><strong style="color:white">문항 수 선택</strong> — 5 / 10 / 15문항</li>
-          <li><strong style="color:white">AI 생성 버튼</strong> → 로딩 후 문제 표시</li>
-        </ul>
-      </div>
-      <div class="card" style="padding:18px">
-        <h4 style="font-size:18px;margin-bottom:10px">🔍 검토 화면</h4>
-        <ul class="check-list" style="font-size:17px">
-          <li>생성된 문제를 하나씩 확인</li>
-          <li>문제·보기·정답 직접 수정 가능</li>
-          <li>이상한 문제는 삭제</li>
-          <li>확인 완료 후 저장 버튼</li>
-        </ul>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="padding:22px;margin-bottom:16px">
-        <h4 style="font-size:18px;margin-bottom:14px">📋 퀴즈 관리 화면</h4>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:12px">
-            <span style="flex:1;font-size:17px;font-weight:700;color:white">클래식 화성학 기초</span>
-            <span class="badge badge-green">공개중</span>
-            <span style="color:var(--gray);font-size:14px">10문항</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
-            <span style="flex:1;font-size:17px;font-weight:700;color:var(--soft)">재즈 코드 진행</span>
-            <span class="badge badge-red">비공개</span>
-            <span style="color:var(--gray);font-size:14px">15문항</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
-            <span style="flex:1;font-size:17px;font-weight:700;color:var(--soft)">K-POP 음악 상식</span>
-            <span class="badge badge-green">공개중</span>
-            <span style="color:var(--gray);font-size:14px">5문항</span>
-          </div>
-        </div>
-      </div>
-      <div class="card card-good" style="padding:16px">
-        <p style="font-size:16px;line-height:1.7;color:var(--soft)">
-          <strong style="color:var(--green)">공개 토글</strong>로 학습자에게 보여줄지 즉시 제어.<br>
+<div class="slide-header">
+<div class="tag tag-cyan">PART 2 · 우리가 만들 것</div>
+<h2>교수자 화면 — 이렇게 생겼어요</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start">
+<div>
+<div class="card card-cyan" style="padding:22px;margin-bottom:16px">
+<h4 class="text-cyan" style="margin-bottom:14px;font-size:19px">✏️ 퀴즈 만들기 화면</h4>
+<ul class="check-list">
+<li><strong style="color:white">퀴즈 제목</strong> 입력칸</li>
+<li><strong style="color:white">장르 선택</strong> — 클래식 / 재즈 / K-POP 등</li>
+<li><strong style="color:white">난이도 선택</strong> — 초급 / 중급 / 고급</li>
+<li><strong style="color:white">문항 수 선택</strong> — 5 / 10 / 15문항</li>
+<li><strong style="color:white">AI 생성 버튼</strong> → 로딩 후 문제 표시</li>
+</ul>
+</div>
+<div class="card" style="padding:18px">
+<h4 style="font-size:18px;margin-bottom:10px">🔍 검토 화면</h4>
+<ul class="check-list" style="font-size:17px">
+<li>생성된 문제를 하나씩 확인</li>
+<li>문제·보기·정답 직접 수정 가능</li>
+<li>이상한 문제는 삭제</li>
+<li>확인 완료 후 저장 버튼</li>
+</ul>
+</div>
+</div>
+<div>
+<div class="card" style="padding:22px;margin-bottom:16px">
+<h4 style="font-size:18px;margin-bottom:14px">📋 퀴즈 관리 화면</h4>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:12px">
+<span style="flex:1;font-size:17px;font-weight:700;color:white">클래식 화성학 기초</span>
+<span class="badge badge-green">공개중</span>
+<span style="color:var(--gray);font-size:14px">10문항</span>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
+<span style="flex:1;font-size:17px;font-weight:700;color:var(--soft)">재즈 코드 진행</span>
+<span class="badge badge-red">비공개</span>
+<span style="color:var(--gray);font-size:14px">15문항</span>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
+<span style="flex:1;font-size:17px;font-weight:700;color:var(--soft)">K-POP 음악 상식</span>
+<span class="badge badge-green">공개중</span>
+<span style="color:var(--gray);font-size:14px">5문항</span>
+</div>
+</div>
+</div>
+<div class="card card-good" style="padding:16px">
+<p style="font-size:16px;line-height:1.7;color:var(--soft)">
+<strong style="color:var(--green)">공개 토글</strong>로 학습자에게 보여줄지 즉시 제어.<br/>
           준비 안 된 퀴즈는 비공개로 두었다가 검토 후 공개.
         </p>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 13 학습자 화면 소개 ══ -->
+</div>
+</div>
+</div>
 <div class="slide" id="s13">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 2 · 우리가 만들 것</div>
-    <h2>학습자 화면 — 이렇게 생겼어요</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start">
-    <div>
-      <div class="card card-orange" style="padding:22px;margin-bottom:16px">
-        <h4 class="text-orange" style="margin-bottom:14px;font-size:19px">📋 퀴즈 목록 화면</h4>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="padding:14px 16px;background:rgba(255,140,0,0.15);border:1px solid rgba(255,140,0,0.4);border-radius:12px">
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <strong style="color:white;font-size:17px">🎻 클래식 화성학 기초</strong>
-              <span class="badge badge-orange">초급</span>
-            </div>
-            <p style="font-size:14px;color:var(--gray)">📝 10문항 &nbsp;·&nbsp; 👥 참여 23명</p>
-          </div>
-          <div style="padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <strong style="color:var(--soft);font-size:17px">🎷 재즈 코드 진행</strong>
-              <span class="badge badge-green">완료 ✓</span>
-            </div>
-            <p style="font-size:14px;color:var(--gray)">📝 15문항 &nbsp;·&nbsp; <span style="color:var(--green)">내 점수: 87점</span></p>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="padding:18px">
-        <h4 style="font-size:17px;margin-bottom:10px">🎯 퀴즈 선택 기준</h4>
-        <ul class="check-list" style="font-size:16px">
-          <li>완료한 퀴즈는 <span class="badge badge-green">완료</span> 배지로 표시</li>
-          <li>새 퀴즈는 <span class="badge badge-pink">NEW</span> 하이라이트</li>
-          <li>장르·난이도·문항수 미리 확인</li>
-        </ul>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="padding:22px;margin-bottom:16px">
-        <h4 style="font-size:18px;margin-bottom:14px">🎮 문제 풀기 화면</h4>
-        <div style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:10px">
-            <span style="font-size:14px;color:var(--gray)">3 / 10문항</span>
-            <span style="font-size:14px;color:var(--cyan)">현재 점수: 20점</span>
-          </div>
-          <div style="height:6px;background:rgba(255,255,255,0.1);border-radius:3px;margin-bottom:14px">
-            <div style="width:30%;height:100%;background:linear-gradient(90deg,var(--pink),var(--cyan));border-radius:3px"></div>
-          </div>
-          <p style="font-size:17px;color:white;margin-bottom:12px;font-weight:600">Q. C장조의 딸림화음은?</p>
-          <div style="display:flex;flex-direction:column;gap:6px">
-            <div style="background:rgba(0,230,118,0.2);border:1px solid var(--green);border-radius:8px;padding:8px 14px;font-size:15px;color:var(--green)">✅ G장조 ← 정답!</div>
-            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:15px;color:var(--soft)">F장조</div>
-          </div>
-          <p style="font-size:13px;color:var(--gray);margin-top:8px">💡 딸림화음은 으뜸음 5도 위, C장조에서는 G(솔)</p>
-        </div>
-      </div>
-      <div class="card card-good" style="padding:16px">
-        <p style="font-size:16px;color:var(--soft);line-height:1.7">정답/오답 <strong style="color:var(--green)">즉시 피드백</strong> + 해설 표시.<br>감점 없음 → 부담 없이 도전 가능.</p>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-orange">PART 2 · 우리가 만들 것</div>
+<h2>학습자 화면 — 이렇게 생겼어요</h2>
 </div>
-
-<!-- ══ 14 리더보드 소개 ══ -->
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start">
+<div>
+<div class="card card-orange" style="padding:22px;margin-bottom:16px">
+<h4 class="text-orange" style="margin-bottom:14px;font-size:19px">📋 퀴즈 목록 화면</h4>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="padding:14px 16px;background:rgba(255,140,0,0.15);border:1px solid rgba(255,140,0,0.4);border-radius:12px">
+<div style="display:flex;justify-content:space-between;margin-bottom:6px">
+<strong style="color:white;font-size:17px">🎻 클래식 화성학 기초</strong>
+<span class="badge badge-orange">초급</span>
+</div>
+<p style="font-size:14px;color:var(--gray)">📝 10문항  ·  👥 참여 23명</p>
+</div>
+<div style="padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px">
+<div style="display:flex;justify-content:space-between;margin-bottom:6px">
+<strong style="color:var(--soft);font-size:17px">🎷 재즈 코드 진행</strong>
+<span class="badge badge-green">완료 ✓</span>
+</div>
+<p style="font-size:14px;color:var(--gray)">📝 15문항  ·  <span style="color:var(--green)">내 점수: 87점</span></p>
+</div>
+</div>
+</div>
+<div class="card" style="padding:18px">
+<h4 style="font-size:17px;margin-bottom:10px">🎯 퀴즈 선택 기준</h4>
+<ul class="check-list" style="font-size:16px">
+<li>완료한 퀴즈는 <span class="badge badge-green">완료</span> 배지로 표시</li>
+<li>새 퀴즈는 <span class="badge badge-pink">NEW</span> 하이라이트</li>
+<li>장르·난이도·문항수 미리 확인</li>
+</ul>
+</div>
+</div>
+<div>
+<div class="card" style="padding:22px;margin-bottom:16px">
+<h4 style="font-size:18px;margin-bottom:14px">🎮 문제 풀기 화면</h4>
+<div style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px">
+<div style="display:flex;justify-content:space-between;margin-bottom:10px">
+<span style="font-size:14px;color:var(--gray)">3 / 10문항</span>
+<span style="font-size:14px;color:var(--cyan)">현재 점수: 20점</span>
+</div>
+<div style="height:6px;background:rgba(255,255,255,0.1);border-radius:3px;margin-bottom:14px">
+<div style="width:30%;height:100%;background:linear-gradient(90deg,var(--pink),var(--cyan));border-radius:3px"></div>
+</div>
+<p style="font-size:17px;color:white;margin-bottom:12px;font-weight:600">Q. C장조의 딸림화음은?</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="background:rgba(0,230,118,0.2);border:1px solid var(--green);border-radius:8px;padding:8px 14px;font-size:15px;color:var(--green)">✅ G장조 ← 정답!</div>
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:15px;color:var(--soft)">F장조</div>
+</div>
+<p style="font-size:13px;color:var(--gray);margin-top:8px">💡 딸림화음은 으뜸음 5도 위, C장조에서는 G(솔)</p>
+</div>
+</div>
+<div class="card card-good" style="padding:16px">
+<p style="font-size:16px;color:var(--soft);line-height:1.7">정답/오답 <strong style="color:var(--green)">즉시 피드백</strong> + 해설 표시.<br/>감점 없음 → 부담 없이 도전 가능.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s14">
-  <div class="slide-header">
-    <div class="tag tag-gold">PART 2 · 우리가 만들 것</div>
-    <h2>리더보드 — 함께 보는 실시간 순위</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:center">
-    <div>
-      <div class="card card-gold" style="padding:22px;margin-bottom:16px">
-        <h4 class="text-gold" style="margin-bottom:14px">🏆 리더보드의 역할</h4>
-        <ul class="check-list">
-          <li>퀴즈마다 별도의 순위판</li>
-          <li>점수 높은 순서로 자동 정렬</li>
-          <li>내 닉네임은 색으로 강조됨</li>
-          <li>누군가 제출하면 <strong style="color:var(--gold)">즉시 순위 업데이트</strong></li>
-          <li>🥇🥈🥉 상위 3명 특별 표시</li>
-        </ul>
-      </div>
-      <div class="quote" style="font-size:19px">
-        단순한 점수 확인을 넘어,<br>
-        <strong>실시간 경쟁이 학습 동기를 만든다.</strong>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="padding:20px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.1)">
-          <span style="color:var(--gray);font-size:13px;font-family:'Space Mono',monospace">클래식 화성학 기초</span>
-          <span class="badge badge-green" style="font-size:11px">● LIVE</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.35);border-radius:10px">
-            <span style="font-size:22px">🥇</span>
-            <span style="flex:1;font-weight:700;color:var(--gold);font-size:17px">JazzMaster</span>
-            <span style="font-size:20px;font-weight:900;color:var(--gold)">120점</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(192,192,192,0.07);border:1px solid rgba(192,192,192,0.2);border-radius:10px">
-            <span style="font-size:22px">🥈</span>
-            <span style="flex:1;color:var(--soft);font-size:17px">MusicLover99</span>
-            <span style="font-size:20px;color:var(--soft)">110점</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(205,127,50,0.07);border:1px solid rgba(205,127,50,0.2);border-radius:10px">
-            <span style="font-size:22px">🥉</span>
-            <span style="flex:1;color:var(--soft);font-size:17px">Harmony★</span>
-            <span style="font-size:20px;color:var(--soft)">100점</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,45,138,0.15);border:1px solid rgba(255,45,138,0.45);border-radius:10px">
-            <span style="font-size:16px;font-weight:700;color:var(--pink);width:22px;text-align:center">4</span>
-            <span style="flex:1;font-weight:700;color:var(--pink);font-size:17px">나 (← 내 닉네임)</span>
-            <span style="font-size:20px;font-weight:700;color:var(--pink)">90점</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-gold">PART 2 · 우리가 만들 것</div>
+<h2>리더보드 — 함께 보는 실시간 순위</h2>
 </div>
-
-<!-- ══ 15 Google Stitch로 화면 먼저 그리기 ══ -->
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:center">
+<div>
+<div class="card card-gold" style="padding:22px;margin-bottom:16px">
+<h4 class="text-gold" style="margin-bottom:14px">🏆 리더보드의 역할</h4>
+<ul class="check-list">
+<li>퀴즈마다 별도의 순위판</li>
+<li>점수 높은 순서로 자동 정렬</li>
+<li>내 닉네임은 색으로 강조됨</li>
+<li>누군가 제출하면 <strong style="color:var(--gold)">즉시 순위 업데이트</strong></li>
+<li>🥇🥈🥉 상위 3명 특별 표시</li>
+</ul>
+</div>
+<div class="quote" style="font-size:19px">
+        단순한 점수 확인을 넘어,<br/>
+<strong>실시간 경쟁이 학습 동기를 만든다.</strong>
+</div>
+</div>
+<div>
+<div class="card" style="padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.1)">
+<span style="color:var(--gray);font-size:13px;font-family:'Space Mono',monospace">클래식 화성학 기초</span>
+<span class="badge badge-green" style="font-size:11px">● LIVE</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.35);border-radius:10px">
+<span style="font-size:22px">🥇</span>
+<span style="flex:1;font-weight:700;color:var(--gold);font-size:17px">JazzMaster</span>
+<span style="font-size:20px;font-weight:900;color:var(--gold)">120점</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(192,192,192,0.07);border:1px solid rgba(192,192,192,0.2);border-radius:10px">
+<span style="font-size:22px">🥈</span>
+<span style="flex:1;color:var(--soft);font-size:17px">MusicLover99</span>
+<span style="font-size:20px;color:var(--soft)">110점</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(205,127,50,0.07);border:1px solid rgba(205,127,50,0.2);border-radius:10px">
+<span style="font-size:22px">🥉</span>
+<span style="flex:1;color:var(--soft);font-size:17px">Harmony★</span>
+<span style="font-size:20px;color:var(--soft)">100점</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,45,138,0.15);border:1px solid rgba(255,45,138,0.45);border-radius:10px">
+<span style="font-size:16px;font-weight:700;color:var(--pink);width:22px;text-align:center">4</span>
+<span style="flex:1;font-weight:700;color:var(--pink);font-size:17px">나 (← 내 닉네임)</span>
+<span style="font-size:20px;font-weight:700;color:var(--pink)">90점</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s15b">
-  <div class="slide-header">
-    <div class="tag tag-pink">PART 2 · 우리가 만들 것</div>
-    <h2>화면을 먼저 그려보자 — Google Stitch</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start">
-    <div>
-      <div class="card card-pink" style="padding:22px;margin-bottom:18px">
-        <h4 class="text-pink" style="margin-bottom:14px;font-size:19px">🎨 Stitch가 뭔가요?</h4>
-        <p style="font-size:19px;line-height:1.8;margin-bottom:14px">
-          말로 설명하면 AI가 <strong style="color:white">앱 화면 디자인</strong>을 만들어주는 도구.<br>
+<div class="slide-header">
+<div class="tag tag-pink">PART 2 · 우리가 만들 것</div>
+<h2>화면을 먼저 그려보자 — Google Stitch</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start">
+<div>
+<div class="card card-pink" style="padding:22px;margin-bottom:18px">
+<h4 class="text-pink" style="margin-bottom:14px;font-size:19px">🎨 Stitch가 뭔가요?</h4>
+<p style="font-size:19px;line-height:1.8;margin-bottom:14px">
+          말로 설명하면 AI가 <strong style="color:white">앱 화면 디자인</strong>을 만들어주는 도구.<br/>
           코딩 시작 전에 <strong style="color:var(--pink)">어떻게 생긴 앱인지 미리 확인</strong>할 수 있어요.
         </p>
-        <div style="background:rgba(255,45,138,0.1);border-radius:12px;padding:14px">
-          <p style="font-size:17px;color:var(--pink);font-weight:700">→ stitch.withgoogle.com (무료)</p>
-        </div>
-      </div>
-      <div class="card" style="padding:20px">
-        <h4 style="font-size:18px;margin-bottom:12px">🏠 왜 화면을 먼저 그리나요?</h4>
-        <div class="step-row" style="padding:9px 0">
-          <div style="font-size:20px;width:32px;text-align:center">1️⃣</div>
-          <div class="step-content"><h4 style="font-size:17px">원하는 모습을 눈으로 확인</h4><p>코딩 후 "이게 아닌데…" 방지</p></div>
-        </div>
-        <div class="step-row" style="padding:9px 0">
-          <div style="font-size:20px;width:32px;text-align:center">2️⃣</div>
-          <div class="step-content"><h4 style="font-size:17px">AI Studio에 이미지로 전달</h4><p>"이 디자인대로 만들어줘" → 훨씬 정확</p></div>
-        </div>
-        <div class="step-row" style="padding:9px 0">
-          <div style="font-size:20px;width:32px;text-align:center">3️⃣</div>
-          <div class="step-content"><h4 style="font-size:17px">나중에 디자인 수정 줄어듦</h4><p>처음부터 원하는 스타일로 시작</p></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h4 style="color:white;margin-bottom:14px;font-size:18px">💬 Stitch 프롬프트 예시</h4>
-      <div class="code-box" style="font-size:14px;line-height:1.85;margin-bottom:14px">Stitch에서:
+<div style="background:rgba(255,45,138,0.1);border-radius:12px;padding:14px">
+<p style="font-size:17px;color:var(--pink);font-weight:700">→ stitch.withgoogle.com (무료)</p>
+</div>
+</div>
+<div class="card" style="padding:20px">
+<h4 style="font-size:18px;margin-bottom:12px">🏠 왜 화면을 먼저 그리나요?</h4>
+<div class="step-row" style="padding:9px 0">
+<div style="font-size:20px;width:32px;text-align:center">1️⃣</div>
+<div class="step-content"><h4 style="font-size:17px">원하는 모습을 눈으로 확인</h4><p>코딩 후 "이게 아닌데…" 방지</p></div>
+</div>
+<div class="step-row" style="padding:9px 0">
+<div style="font-size:20px;width:32px;text-align:center">2️⃣</div>
+<div class="step-content"><h4 style="font-size:17px">AI Studio에 이미지로 전달</h4><p>"이 디자인대로 만들어줘" → 훨씬 정확</p></div>
+</div>
+<div class="step-row" style="padding:9px 0">
+<div style="font-size:20px;width:32px;text-align:center">3️⃣</div>
+<div class="step-content"><h4 style="font-size:17px">나중에 디자인 수정 줄어듦</h4><p>처음부터 원하는 스타일로 시작</p></div>
+</div>
+</div>
+</div>
+<div>
+<h4 style="color:white;margin-bottom:14px;font-size:18px">💬 Stitch 프롬프트 예시</h4>
+<div class="code-box" style="font-size:14px;line-height:1.85;margin-bottom:14px">Stitch에서:
 
 "음악 퀴즈 앱의 학습자 메인 화면.
 닉네임 환영 메시지, 퀴즈 카드 목록.
 각 카드: 퀴즈 제목, 장르 태그, 문항수.
 완료한 퀴즈는 회색으로 표시.
 다크 테마, 네온 포인트 컬러."</div>
-      <div class="card card-good" style="padding:16px;margin-bottom:12px">
-        <p style="font-size:16px;color:var(--soft)">
-          <strong style="color:var(--green)">Stitch 완성 후 → AI Studio로</strong><br>
-          화면 캡처 이미지를 AI Studio에 붙여넣고<br>
+<div class="card card-good" style="padding:16px;margin-bottom:12px">
+<p style="font-size:16px;color:var(--soft)">
+<strong style="color:var(--green)">Stitch 완성 후 → AI Studio로</strong><br/>
+          화면 캡처 이미지를 AI Studio에 붙여넣고<br/>
           "이 디자인대로 HTML 만들어줘"
         </p>
-      </div>
-      <div class="card" style="padding:14px;background:rgba(255,45,138,0.06);border-color:rgba(255,45,138,0.2)">
-        <p style="font-size:15px;color:var(--gray)">
-          💡 Stitch 없이 시작해도 되지만,<br>
-          있으면 수정 시간이 <strong style="color:white">70% 이상 줄어듦</strong>
-        </p>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 15 PART 3 표지 ══ -->
+<div class="card" style="padding:14px;background:rgba(255,45,138,0.06);border-color:rgba(255,45,138,0.2)">
+<p style="font-size:15px;color:var(--gray)">
+          💡 Stitch 없이 시작해도 되지만,<br/>
+          있으면 수정 시간이 <strong style="color:white">70% 이상 줄어듦</strong>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide" id="s15b2">
+<div class="slide-header">
+<div class="tag tag-pink">PART 2 · 우리가 만들 것</div>
+<h2>Google Stitch — 실제 화면</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;gap:24px;align-items:center">
+<img alt="Google Stitch 화면 1" src="스티치1.png" style="width:100%;border-radius:10px;border:1px solid var(--border)"/>
+<img alt="Google Stitch 화면 2" src="스티치2.png" style="width:100%;border-radius:10px;border:1px solid var(--border)"/>
+</div>
+</div>
 <div class="slide" id="s15">
-  <div class="grid-bg"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1">
-    <div class="part-badge">PART 3</div>
-    <h2 style="font-size:58px;margin-bottom:20px"><span class="text-neon">직접 만들어보자</span></h2>
-    <p class="lead text-gray" style="max-width:600px;margin:0 auto 32px">
+<div class="grid-bg"></div>
+<div style="margin-block:auto;text-align:center;z-index:1">
+<div class="part-badge">PART 3</div>
+<h2 style="font-size:58px;margin-bottom:20px"><span class="text-neon">직접 만들어보자</span></h2>
+<p class="lead text-gray" style="max-width:600px;margin:0 auto 32px">
       준비물 챙기고 → AI에게 전달하고 → 단계별로 완성
     </p>
-    <div class="flow" style="justify-content:center;gap:10px">
-      <div class="flow-item">🗂️ 준비물</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">📋 설계서 작성</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">🤖 AI에게 전달</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900">✅ 완성</div>
-    </div>
-  </div>
+<div class="flow" style="justify-content:center;gap:10px">
+<div class="flow-item">🗂️ 준비물</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">📋 설계서 작성</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item">🤖 AI에게 전달</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900">✅ 완성</div>
 </div>
-
-<!-- ══ 15c AI Studio Build 모드 가이드 ══ -->
-<div class="slide" id="s15c">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 3 · 만들기</div>
-    <h2>AI Studio Build 모드 — 처음 접속하면</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start;gap:28px">
-    <div>
-      <h4 style="color:white;margin-bottom:14px;font-size:18px">🖥️ 화면 구성</h4>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px">
-        <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:12px">
-          <span style="font-size:22px;width:32px;text-align:center">1️⃣</span>
-          <div><h4 style="font-size:16px;color:var(--cyan);margin-bottom:2px">Build 탭 선택</h4><p style="font-size:14px;color:var(--gray)">aistudio.google.com → 좌측 메뉴에서 Build 클릭</p></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.25);border-radius:12px">
-          <span style="font-size:22px;width:32px;text-align:center">2️⃣</span>
-          <div><h4 style="font-size:16px;color:var(--orange);margin-bottom:2px">프롬프트 입력</h4><p style="font-size:14px;color:var(--gray)">하단 채팅창에 설계서 붙여넣고 전송</p></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(255,45,138,0.08);border:1px solid rgba(255,45,138,0.25);border-radius:12px">
-          <span style="font-size:22px;width:32px;text-align:center">3️⃣</span>
-          <div><h4 style="font-size:16px;color:var(--pink);margin-bottom:2px">우측 미리보기 확인</h4><p style="font-size:14px;color:var(--gray)">Preview 창에서 앱이 바로 실행됨 — 직접 눌러서 테스트</p></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:rgba(155,0,255,0.08);border:1px solid rgba(155,0,255,0.25);border-radius:12px">
-          <span style="font-size:22px;width:32px;text-align:center">4️⃣</span>
-          <div><h4 style="font-size:16px;color:#C77DFF;margin-bottom:2px">수정이 필요하면</h4><p style="font-size:14px;color:var(--gray)">채팅으로 설명 or Annotation 모드로 직접 지정</p></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card card-pink" style="padding:22px;margin-bottom:16px">
-        <h4 class="text-pink" style="font-size:19px;margin-bottom:12px">✏️ Annotation 모드 — 신기능</h4>
-        <p style="font-size:17px;line-height:1.8;margin-bottom:14px">
-          말로 설명하기 어려울 때,<br>
-          <strong style="color:white">화면의 특정 부분을 드래그해서 직접 지정</strong>하고<br>
-          수정 내용을 입력하면 코드가 자동 변경됩니다.
-        </p>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="background:rgba(255,45,138,0.1);border-radius:10px;padding:10px 14px">
-            <p style="font-size:15px;color:var(--soft)">📦 <strong style="color:white">박스 도구</strong> — 영역을 사각형으로 드래그 후 설명 입력</p>
-          </div>
-          <div style="background:rgba(255,45,138,0.1);border-radius:10px;padding:10px 14px">
-            <p style="font-size:15px;color:var(--soft)">➡️ <strong style="color:white">화살표 도구</strong> — 특정 요소를 가리키며 변경 요청</p>
-          </div>
-        </div>
-      </div>
-      <div class="card card-good" style="padding:14px">
-        <p style="font-size:16px;color:var(--soft)">
-          💡 <strong style="color:var(--green)">"버튼 색을 바꿔줘"보다</strong><br>
-          버튼을 드래그해서 "이 버튼 핑크색으로" → 훨씬 정확
-        </p>
-      </div>
-    </div>
-  </div>
 </div>
-
-
-<!-- ══ 16 사전 준비물 ══ -->
+</div>
 <div class="slide" id="s16">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 3 · 만들기</div>
-    <h2>시작 전에 준비해주세요</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start">
-    <div>
-      <table style="margin-bottom:18px">
-        <thead><tr><th>준비물</th><th>용도</th><th>비용</th></tr></thead>
-        <tbody>
-          <tr><td class="td-hi"><strong>Google 계정</strong></td><td>AI Studio + Firebase 모두 Google 로그인</td><td>무료</td></tr>
-          <tr><td><strong>Chrome 브라우저</strong></td><td>에러 확인 (F12) 가장 편함</td><td>무료</td></tr>
-          <tr><td><strong>Firebase 프로젝트</strong></td><td>데이터 저장 + 실시간 동기화</td><td>무료(Spark)</td></tr>
-          <tr><td><strong>Gemini API 키</strong></td><td>AI 퀴즈 자동 생성</td><td>무료 한도 제공</td></tr>
-        </tbody>
-      </table>
-      <div class="card card-good" style="padding:16px">
-        <p style="font-size:17px;line-height:1.7">
-          <strong style="color:var(--green)">핵심 원칙</strong><br>
-          코드를 <strong style="color:white">몰라도 됩니다.</strong><br>
+<div class="slide-header">
+<div class="tag tag-orange">PART 3 · 만들기</div>
+<h2>시작 전에 준비해주세요</h2>
+</div>
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start">
+<div>
+<table style="margin-bottom:18px">
+<thead><tr><th>준비물</th><th>용도</th><th>비용</th></tr></thead>
+<tbody>
+<tr><td class="td-hi"><strong>Google 계정</strong></td><td>AI Studio + Firebase 모두 Google 로그인</td><td>무료</td></tr>
+<tr><td><strong>Chrome 브라우저</strong></td><td>에러 확인 (F12) 가장 편함</td><td>무료</td></tr>
+<tr><td><strong>Firebase 프로젝트</strong></td><td>데이터 저장 + 실시간 동기화</td><td>무료(Spark)</td></tr>
+<tr><td><strong>Gemini API 키</strong></td><td>AI 퀴즈 자동 생성</td><td>무료 한도 제공</td></tr>
+</tbody>
+</table>
+<div class="card card-good" style="padding:16px">
+<p style="font-size:17px;line-height:1.7">
+<strong style="color:var(--green)">핵심 원칙</strong><br/>
+          코드를 <strong style="color:white">몰라도 됩니다.</strong><br/>
           하지만 <strong style="color:var(--cyan)">무엇을 만들지</strong>는 정확히 알아야 합니다.
         </p>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="card card-orange" style="padding:18px">
-        <h4 style="font-size:17px;margin-bottom:10px" class="text-orange">🔥 Firebase 프로젝트 만들기</h4>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">1</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">console.firebase.google.com 접속</p></div></div>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">2</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">프로젝트 만들기 → music-quiz</p></div></div>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">3</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">Firestore → 테스트 모드 → Seoul</p></div></div>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">4</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">웹 앱 추가 → 설정값 복사 보관</p></div></div>
-      </div>
-      <div class="card card-cyan" style="padding:18px">
-        <h4 style="font-size:17px;margin-bottom:10px" class="text-cyan">🔑 Gemini API 키 발급</h4>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">1</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">aistudio.google.com 접속</p></div></div>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">2</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">Get API Key → Create API Key</p></div></div>
-        <div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">3</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">키 복사 보관 — 코드에 직접 넣지 말 것</p></div></div>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 17 AI에게 설계서 전달하는 법 ══ -->
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="card card-orange" style="padding:18px">
+<h4 class="text-orange" style="font-size:17px;margin-bottom:10px">🔥 Firebase 프로젝트 만들기</h4>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">1</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">console.firebase.google.com 접속</p></div></div>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">2</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">프로젝트 만들기 → music-quiz</p></div></div>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">3</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">Firestore → 테스트 모드</p></div></div>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">4</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">웹 앱 추가 → 설정값 복사 보관</p></div></div>
+</div>
+<div class="card card-cyan" style="padding:18px">
+<h4 class="text-cyan" style="font-size:17px;margin-bottom:10px">🔑 Gemini API 키 발급</h4>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">1</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">aistudio.google.com 접속</p></div></div>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">2</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">Get API Key → Create API Key</p></div></div>
+<div class="step-row" style="padding:8px 0"><div class="step-num" style="width:32px;height:32px;font-size:14px">3</div><div class="step-content"><p style="font-size:15px;color:var(--soft)">키 복사 보관 — 코드에 직접 넣지 말 것</p></div></div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s17">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 3 · 만들기</div>
-    <h2>AI에게 어떻게 설명해야 할까?</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:start">
-    <div>
-      <div class="card" style="padding:20px;margin-bottom:18px;border-color:rgba(255,255,255,0.15)">
-        <div style="color:var(--gray);font-weight:800;font-size:13px;margin-bottom:10px">💬 짧게 시작하면</div>
-        <p style="font-size:18px;color:var(--soft)">"음악 퀴즈 앱 전부 다 만들어줘"<br>→ 뭔가 나오긴 함 → 수정하다 보면 꼬일 확률이 높아짐</p>
-      </div>
-      <div class="card card-good" style="padding:20px">
-        <div style="color:var(--green);font-weight:800;font-size:13px;margin-bottom:10px">✅ 설계서와 함께 전달하면</div>
-        <p style="font-size:18px;color:#A7F3D0">역할·기능·데이터를 설계서로 정리 →<br>AI에게 단계별로 나눠서 전달</p>
-      </div>
-    </div>
-    <div>
-      <div class="card" style="padding:20px;margin-bottom:16px">
-        <h4 style="font-size:19px;margin-bottom:14px">📋 설계서에 담을 내용</h4>
-        <div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">1</div><div class="step-content"><h4 style="font-size:17px">서비스 한 줄 설명</h4><p>무엇을 만드는지 명확히</p></div></div>
-        <div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">2</div><div class="step-content"><h4 style="font-size:17px">사용자 종류와 역할</h4><p>교수자 / 학습자 각각 뭘 하는지</p></div></div>
-        <div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">3</div><div class="step-content"><h4 style="font-size:17px">화면별 기능 목록</h4><p>각 화면에서 할 수 있는 것</p></div></div>
-        <div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">4</div><div class="step-content"><h4 style="font-size:17px">저장해야 할 데이터</h4><p>퀴즈·점수·닉네임 등</p></div></div>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-cyan">PART 3 · 만들기</div>
+<h2>AI에게 어떻게 설명해야 할까?</h2>
 </div>
-
-<!-- ══ 18 단계별 전달 4단계 ══ -->
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:start">
+<div>
+<div class="card" style="padding:20px;margin-bottom:18px;border-color:rgba(255,255,255,0.15)">
+<div style="color:var(--gray);font-weight:800;font-size:13px;margin-bottom:10px">💬 짧게 시작하면</div>
+<p style="font-size:18px;color:var(--soft)">"음악 퀴즈 앱 전부 다 만들어줘"<br/>→ 뭔가 나오긴 함 → 수정하다 보면 꼬일 확률이 높아짐</p>
+</div>
+<div class="card card-good" style="padding:20px">
+<div style="color:var(--green);font-weight:800;font-size:13px;margin-bottom:10px">✅ 설계서와 함께 전달하면</div>
+<p style="font-size:18px;color:#A7F3D0">역할·기능·데이터를 설계서로 정리 →<br/>AI에게 단계별로 나눠서 전달</p>
+</div>
+</div>
+<div>
+<div class="card" style="padding:20px;margin-bottom:16px">
+<h4 style="font-size:19px;margin-bottom:14px">📋 설계서에 담을 내용</h4>
+<div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">1</div><div class="step-content"><h4 style="font-size:17px">서비스 한 줄 설명</h4><p>무엇을 만드는지 명확히</p></div></div>
+<div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">2</div><div class="step-content"><h4 style="font-size:17px">사용자 종류와 역할</h4><p>교수자 / 학습자 각각 뭘 하는지</p></div></div>
+<div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">3</div><div class="step-content"><h4 style="font-size:17px">화면별 기능 목록</h4><p>각 화면에서 할 수 있는 것</p></div></div>
+<div class="step-row" style="padding:9px 0"><div class="step-num" style="width:36px;height:36px;font-size:15px">4</div><div class="step-content"><h4 style="font-size:17px">저장해야 할 데이터</h4><p>퀴즈·점수·닉네임 등</p></div></div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s18">
-  <div class="slide-header">
-    <div class="tag tag-pink">PART 3 · 만들기</div>
-    <h2>단계별로 나눠서 전달하기</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;align-items:start">
-    <div class="card" style="border-left:4px solid var(--cyan);padding:18px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div class="step-num">1</div>
-        <h4 style="font-size:18px">뼈대 먼저</h4>
-      </div>
-      <p style="font-size:15px;line-height:1.6;color:var(--soft)">Firebase 연결 + 닉네임 입장 화면 + 역할 분기</p>
-      <p style="color:var(--cyan);font-size:13px;margin-top:4px">→ 화면은 아직 없어도 됨</p>
-    </div>
-    <div class="card" style="border-left:4px solid var(--purple);padding:18px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div class="step-num" style="background:linear-gradient(135deg,var(--purple),var(--pink))">2</div>
-        <h4 style="font-size:18px">화면 하나씩</h4>
-      </div>
-      <p style="font-size:15px;line-height:1.6;color:var(--soft)">퀴즈 생성 → 목록 → 풀기 → 결과 → 리더보드</p>
-      <p style="color:#C77DFF;font-size:13px;margin-top:4px">→ 만들 때마다 직접 눌러보며 확인</p>
-    </div>
-    <div class="card" style="border-left:4px solid var(--gold);padding:18px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div class="step-num" style="background:linear-gradient(135deg,#F59E0B,var(--gold))">3</div>
-        <h4 style="font-size:18px">예외 상황 처리</h4>
-      </div>
-      <p style="font-size:15px;line-height:1.6;color:var(--soft)">닉네임 중복, 빈 칸 제출, API 오류 대비</p>
-      <p style="color:var(--gold);font-size:13px;margin-top:4px">→ 이상한 입력도 잘 막히는지 확인</p>
-    </div>
-    <div class="card" style="border-left:4px solid var(--green);padding:18px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div class="step-num" style="background:linear-gradient(135deg,#059669,var(--green))">4</div>
-        <h4 style="font-size:18px">상황별 다르게</h4>
-      </div>
-      <p style="font-size:15px;line-height:1.6;color:var(--soft)">비공개 퀴즈 숨기기, 이미 푼 퀴즈 표시</p>
-      <p style="color:var(--green);font-size:13px;margin-top:4px">→ 실제 사용 시나리오로 테스트</p>
-    </div>
-  </div>
-  <div class="card card-dark" style="margin-top:12px;padding:10px">
-    <p style="font-size:15px;text-align:center;color:var(--soft)">각 단계 완료 후 <strong style="color:white">직접 눌러보며 테스트</strong> → 이상 없으면 다음 단계로</p>
-  </div>
+<div class="slide-header">
+<div class="tag tag-pink">PART 3 · 만들기</div>
+<h2>단계별로 나눠서 전달하기</h2>
 </div>
-
-<!-- ══ 19 실전 대화록 ══ -->
+<div class="neon-line"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;align-items:start">
+<div class="card" style="border-left:4px solid var(--cyan);padding:18px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+<div class="step-num">1</div>
+<h4 style="font-size:18px">뼈대 먼저</h4>
+</div>
+<p style="font-size:15px;line-height:1.6;color:var(--soft)">Firebase 연결 + 닉네임 입장 화면 + 역할 분기</p>
+<p style="color:var(--cyan);font-size:13px;margin-top:4px">→ 화면은 아직 없어도 됨</p>
+</div>
+<div class="card" style="border-left:4px solid var(--purple);padding:18px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+<div class="step-num" style="background:linear-gradient(135deg,var(--purple),var(--pink))">2</div>
+<h4 style="font-size:18px">화면 하나씩</h4>
+</div>
+<p style="font-size:15px;line-height:1.6;color:var(--soft)">퀴즈 생성 → 목록 → 풀기 → 결과 → 리더보드</p>
+<p style="color:#C77DFF;font-size:13px;margin-top:4px">→ 만들 때마다 직접 눌러보며 확인</p>
+</div>
+<div class="card" style="border-left:4px solid var(--gold);padding:18px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+<div class="step-num" style="background:linear-gradient(135deg,#F59E0B,var(--gold))">3</div>
+<h4 style="font-size:18px">예외 상황 처리</h4>
+</div>
+<p style="font-size:15px;line-height:1.6;color:var(--soft)">닉네임 중복, 빈 칸 제출, API 오류 대비</p>
+<p style="color:var(--gold);font-size:13px;margin-top:4px">→ 이상한 입력도 잘 막히는지 확인</p>
+</div>
+<div class="card" style="border-left:4px solid var(--green);padding:18px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+<div class="step-num" style="background:linear-gradient(135deg,#059669,var(--green))">4</div>
+<h4 style="font-size:18px">상황별 다르게</h4>
+</div>
+<p style="font-size:15px;line-height:1.6;color:var(--soft)">비공개 퀴즈 숨기기, 이미 푼 퀴즈 표시</p>
+<p style="color:var(--green);font-size:13px;margin-top:4px">→ 실제 사용 시나리오로 테스트</p>
+</div>
+</div>
+<div class="card card-dark" style="margin-top:12px;padding:10px">
+<p style="font-size:15px;text-align:center;color:var(--soft)">각 단계 완료 후 <strong style="color:white">직접 눌러보며 테스트</strong> → 이상 없으면 다음 단계로</p>
+</div>
+</div>
 <div class="slide" id="s19">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 3 · 만들기</div>
-    <h2>실전 — AI Studio에서 첫 대화 시작하기</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div style="flex:1;display:flex;flex-direction:column;gap:18px">
-    <h4 style="color:white;font-size:18px">📨 첫 메시지 예시</h4>
-    <div style="position:relative">
-      <div class="code-box" id="promptBox" style="font-size:14px;line-height:1.95;padding-top:40px">나: "나는 비전공자야.
+<div class="slide-header">
+<div class="tag tag-orange">PART 3 · 만들기</div>
+<h2>실전 — AI Studio에서 첫 대화 시작하기</h2>
+</div>
+<div class="neon-line"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<h4 style="color:white;font-size:18px">📨 첫 메시지 예시</h4>
+<div style="position:relative">
+<div class="code-box" id="promptBox" style="font-size:14px;line-height:1.95;padding-top:40px">나: "나는 비전공자야.
 AI 음악 퀴즈 프로그램을 만들려고 해.
 
 사용자는 두 종류야:
@@ -1358,251 +1446,218 @@ AI 음악 퀴즈 프로그램을 만들려고 해.
 아래 설계서를 읽고 질문해줘.
 아직 코드는 만들지 마.
 [설계서 붙여넣기]"</div>
-      <button onclick="copyPrompt()" id="copyBtn" style="position:absolute;top:10px;right:10px;background:rgba(0,229,255,0.15);border:1px solid rgba(0,229,255,0.4);color:var(--cyan);padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-family:'Space Mono',monospace;transition:all .2s">📋 복사</button>
-    </div>
-    <div class="two-col" style="gap:16px">
-      <div class="card card-good" style="padding:16px">
-        <p style="font-size:16px;color:var(--soft)">
-          <strong style="color:var(--green)">AI가 질문을 한다 = 설계가 잘 된 것</strong><br>
+<button id="copyBtn" onclick="copyPrompt()" style="position:absolute;top:10px;right:10px;background:rgba(0,229,255,0.15);border:1px solid rgba(0,229,255,0.4);color:var(--cyan);padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-family:'Space Mono',monospace;transition:all .2s">📋 복사</button>
+</div>
+<div class="two-col" style="gap:16px">
+<div class="card card-good" style="padding:16px">
+<p style="font-size:16px;color:var(--soft)">
+<strong style="color:var(--green)">AI가 질문을 한다 = 설계가 잘 된 것</strong><br/>
           질문 없이 바로 코드 → 위험 신호!
         </p>
-      </div>
-      <div class="card" style="padding:16px;border-color:rgba(0,229,255,0.25)">
-        <p style="font-size:16px;color:var(--soft)">
-          <strong style="color:var(--cyan)">코드가 나오면 직접 눌러서 확인</strong><br>
+</div>
+<div class="card" style="padding:16px;border-color:rgba(0,229,255,0.25)">
+<p style="font-size:16px;color:var(--soft)">
+<strong style="color:var(--cyan)">코드가 나오면 직접 눌러서 확인</strong><br/>
           작동하면 다음 단계 요청, 아니면 에러 메시지 그대로 복사
         </p>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!-- ══ 19b AI Studio Share & Publish ══ -->
+</div>
+</div>
+</div>
 <div class="slide" id="s19b">
-  <div class="slide-header">
-    <div class="tag tag-cyan">PART 3 · 만들기</div>
-    <h2>완성 후 공개하기 — Share vs Publish</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="three-col" style="flex:1;align-items:start;gap:20px">
-    <div class="card card-cyan" style="padding:22px;height:100%">
-      <div style="text-align:center;margin-bottom:16px">
-        <span style="font-size:40px;display:block;margin-bottom:8px">🔗</span>
-        <h4 class="text-cyan" style="font-size:20px">Share (링크 공유)</h4>
-      </div>
-      <ul class="check-list" style="font-size:16px;margin-bottom:16px">
-        <li>AI Studio 상단 <strong style="color:white">Share 버튼</strong> 클릭</li>
-        <li>링크 생성 → 카카오톡·이메일로 전송</li>
-        <li>받은 사람은 구글 계정으로 접속</li>
-        <li>서버 비용 <strong style="color:var(--green)">없음</strong></li>
-      </ul>
-      <div style="background:rgba(0,229,255,0.1);border-radius:10px;padding:12px">
-        <p style="font-size:14px;color:var(--cyan);font-weight:700;margin-bottom:4px">⚠️ 주의</p>
-        <p style="font-size:14px;color:var(--soft)">화면 상단에<br>"실험용 앱" 문구 표시됨<br>→ 테스트·발표용으로 적합</p>
-      </div>
-      <div class="badge badge-green" style="display:block;text-align:center;margin-top:12px;padding:8px">✅ 추천 — 입문자용</div>
-    </div>
-
-    <div class="card card-orange" style="padding:22px;height:100%">
-      <div style="text-align:center;margin-bottom:16px">
-        <span style="font-size:40px;display:block;margin-bottom:8px">🚀</span>
-        <h4 class="text-orange" style="font-size:20px">Publish (정식 배포)</h4>
-      </div>
-      <ul class="check-list" style="font-size:16px;margin-bottom:16px">
-        <li>AI Studio → <strong style="color:white">Deploy 버튼</strong> 클릭</li>
-        <li>Google Cloud Run에 자동 배포</li>
-        <li>고정 URL 생성 → 누구나 접속 가능</li>
-        <li>Google 계정 없어도 사용 가능</li>
-      </ul>
-      <div style="background:rgba(255,140,0,0.1);border-radius:10px;padding:12px">
-        <p style="font-size:14px;color:var(--orange);font-weight:700;margin-bottom:4px">⚠️ 주의</p>
-        <p style="font-size:14px;color:var(--soft)">Google Cloud 결제 계정 필요<br>사용량에 따라 <strong style="color:var(--orange)">비용 발생</strong> 가능</p>
-      </div>
-      <div class="badge badge-blue" style="display:block;text-align:center;margin-top:12px;padding:8px">심화 — 외부 공개용</div>
-    </div>
-
-    <div class="card card-purple" style="padding:22px;height:100%">
-      <div style="text-align:center;margin-bottom:16px">
-        <span style="font-size:40px;display:block;margin-bottom:8px">🐙</span>
-        <h4 style="font-size:20px;color:#C77DFF">GitHub + Vercel</h4>
-      </div>
-      <ul class="check-list" style="font-size:16px;margin-bottom:16px">
-        <li>AI Studio → <strong style="color:white">Export to GitHub</strong></li>
-        <li>Vercel에서 GitHub 연결 → 자동 배포</li>
-        <li>"실험용 앱" 문구 <strong style="color:var(--green)">없음</strong></li>
-        <li>독립적인 URL로 운영</li>
-      </ul>
-      <div style="background:rgba(155,0,255,0.1);border-radius:10px;padding:12px">
-        <p style="font-size:14px;color:#C77DFF;font-weight:700;margin-bottom:4px">💡 장점</p>
-        <p style="font-size:14px;color:var(--soft)">가장 깔끔하게 배포<br>포트폴리오·외부 공개 서비스로 최적</p>
-      </div>
-      <div class="badge badge-red" style="display:block;text-align:center;margin-top:12px;padding:8px">심화 <span class="badge badge-red" style="font-size:11px">Antigravity</span></div>
-    </div>
-  </div>
-  <div class="card card-good" style="margin-top:16px;padding:12px">
-    <p style="font-size:17px;text-align:center;color:var(--soft)">
+<div class="slide-header">
+<div class="tag tag-cyan">PART 3 · 만들기</div>
+<h2>완성 후 공개하기 — Share vs Publish</h2>
+</div>
+<div class="neon-line"></div>
+<div class="three-col" style="flex:1;align-items:start;gap:20px">
+<div class="card card-cyan" style="padding:22px;height:100%">
+<div style="text-align:center;margin-bottom:16px">
+<span style="font-size:40px;display:block;margin-bottom:8px">🔗</span>
+<h4 class="text-cyan" style="font-size:20px">Share (링크 공유)</h4>
+</div>
+<ul class="check-list" style="font-size:16px;margin-bottom:16px">
+<li>AI Studio 상단 <strong style="color:white">Share 버튼</strong> 클릭</li>
+<li>링크 생성 → 카카오톡·이메일로 전송</li>
+<li>받은 사람은 구글 계정으로 접속</li>
+<li>서버 비용 <strong style="color:var(--green)">없음</strong></li>
+</ul>
+<div style="background:rgba(0,229,255,0.1);border-radius:10px;padding:12px">
+<p style="font-size:14px;color:var(--cyan);font-weight:700;margin-bottom:4px">⚠️ 주의</p>
+<p style="font-size:14px;color:var(--soft)">화면 상단에<br/>"실험용 앱" 문구 표시됨<br/>→ 테스트·발표용으로 적합</p>
+</div>
+<div class="badge badge-green" style="display:block;text-align:center;margin-top:12px;padding:8px">✅ 추천 — 입문자용</div>
+</div>
+<div class="card card-orange" style="padding:22px;height:100%">
+<div style="text-align:center;margin-bottom:16px">
+<span style="font-size:40px;display:block;margin-bottom:8px">🚀</span>
+<h4 class="text-orange" style="font-size:20px">Publish (정식 배포)</h4>
+</div>
+<ul class="check-list" style="font-size:16px;margin-bottom:16px">
+<li>AI Studio → <strong style="color:white">Deploy 버튼</strong> 클릭</li>
+<li>Google Cloud Run에 자동 배포</li>
+<li>고정 URL 생성 → 누구나 접속 가능</li>
+<li>Google 계정 없어도 사용 가능</li>
+</ul>
+<div style="background:rgba(255,140,0,0.1);border-radius:10px;padding:12px">
+<p style="font-size:14px;color:var(--orange);font-weight:700;margin-bottom:4px">⚠️ 주의</p>
+<p style="font-size:14px;color:var(--soft)">Google Cloud 결제 계정 필요<br/>사용량에 따라 <strong style="color:var(--orange)">비용 발생</strong> 가능</p>
+</div>
+<div class="badge badge-blue" style="display:block;text-align:center;margin-top:12px;padding:8px">심화 — 외부 공개용</div>
+</div>
+<div class="card card-purple" style="padding:22px;height:100%">
+<div style="text-align:center;margin-bottom:16px">
+<span style="font-size:40px;display:block;margin-bottom:8px">🐙</span>
+<h4 style="font-size:20px;color:#C77DFF">GitHub + Vercel</h4>
+</div>
+<ul class="check-list" style="font-size:16px;margin-bottom:16px">
+<li>AI Studio → <strong style="color:white">Export to GitHub</strong></li>
+<li>Vercel에서 GitHub 연결 → 자동 배포</li>
+<li>"실험용 앱" 문구 <strong style="color:var(--green)">없음</strong></li>
+<li>독립적인 URL로 운영</li>
+</ul>
+<div style="background:rgba(155,0,255,0.1);border-radius:10px;padding:12px">
+<p style="font-size:14px;color:#C77DFF;font-weight:700;margin-bottom:4px">💡 장점</p>
+<p style="font-size:14px;color:var(--soft)">가장 깔끔하게 배포<br/>포트폴리오·외부 공개 서비스로 최적</p>
+</div>
+<div class="badge badge-red" style="display:block;text-align:center;margin-top:12px;padding:8px">심화 <span class="badge badge-red" style="font-size:11px">Antigravity</span></div>
+</div>
+</div>
+<div class="card card-good" style="margin-top:16px;padding:12px">
+<p style="font-size:17px;text-align:center;color:var(--soft)">
       지금 당장은 <strong style="color:var(--green)">Share(링크 공유)</strong>로 충분 — 배포는 나중에 천천히
     </p>
-  </div>
 </div>
-
-<!-- ══ 20 생존 기술 ══ -->
+</div>
 <div class="slide" id="s20">
-  <div class="slide-header">
-    <div class="tag tag-pink">PART 3 · 만들기</div>
-    <h2>비개발자 생존 기술 3가지</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="three-col" style="flex:1;align-items:start;gap:16px">
-    <div class="card" style="padding:18px;height:100%">
-      <div class="badge badge-pink" style="margin-bottom:10px">생존 기술 1</div>
-      <h4 style="font-size:17px;margin-bottom:10px">에러는 그대로 복사</h4>
-      <div class="card" style="padding:10px;margin-bottom:8px;border-radius:10px;border-color:rgba(255,255,255,0.15)">
-        <p style="font-size:13px;color:var(--gray)">😅 "에러 나요" "빨간 글씨 떠요"</p>
-      </div>
-      <div class="card card-good" style="padding:10px;margin-bottom:10px;border-radius:10px">
-        <p style="font-size:13px;color:#A7F3D0">✅ 에러 메시지 전체 복사 → AI에 붙여넣기</p>
-      </div>
-      <p style="font-size:13px;color:var(--gray);line-height:1.6">에러 확인: F12 → Console 탭</p>
-    </div>
-    <div class="card" style="padding:18px;height:100%">
-      <div class="badge badge-cyan" style="margin-bottom:10px">생존 기술 2</div>
-      <h4 style="font-size:17px;margin-bottom:10px">3가지 질문 공식</h4>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="background:rgba(255,45,138,0.08);padding:10px;border-radius:8px">
-          <p style="font-size:12px;font-weight:700;color:var(--pink);margin-bottom:2px">🔴 문제 신고</p>
-          <p style="font-size:12px;color:var(--soft)">[뭘 했는데] + [무슨 일이] + [기대했던 것]</p>
-        </div>
-        <div style="background:rgba(0,229,255,0.08);padding:10px;border-radius:8px">
-          <p style="font-size:12px;font-weight:700;color:var(--cyan);margin-bottom:2px">🔵 기능 수정</p>
-          <p style="font-size:12px;color:var(--soft)">[지금 동작] + [원하는 동작] + [화면 위치]</p>
-        </div>
-        <div style="background:rgba(0,230,118,0.08);padding:10px;border-radius:8px">
-          <p style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:2px">🟢 모를 때</p>
-          <p style="font-size:12px;color:var(--soft)">[하려는 것] + [막힌 지점] + "비개발자야"</p>
-        </div>
-      </div>
-    </div>
-    <div class="card" style="padding:18px;height:100%">
-      <div class="badge badge-orange" style="margin-bottom:10px">생존 기술 3</div>
-      <h4 style="font-size:17px;margin-bottom:10px">되돌리고 싶을 때</h4>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
-        <div style="background:rgba(255,255,255,0.05);padding:10px;border-radius:8px">
-          <p style="font-size:12px;color:var(--gray)"><strong style="color:var(--soft)">A.</strong> "방금 바꾼 거 되돌려줘"</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.05);padding:10px;border-radius:8px">
-          <p style="font-size:12px;color:var(--gray)"><strong style="color:var(--soft)">B.</strong> "로그인 만들기 전 상태로"</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.05);padding:10px;border-radius:8px">
-          <p style="font-size:12px;color:var(--gray)"><strong style="color:var(--soft)">C.</strong> "처음부터 다시. 설계서: [붙여넣기]"</p>
-        </div>
-      </div>
-      <div class="card card-good" style="padding:8px;border-radius:8px">
-        <p style="font-size:12px;color:var(--soft);text-align:center">처음부터 다시 = 정상 😊</p>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-pink">PART 3 · 만들기</div>
+<h2>비개발자 생존 기술 3가지</h2>
 </div>
-
-<!-- ══ 21 자주 하는 실수 ══ -->
-<div class="slide" id="s21">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 3 · 만들기</div>
-    <h2>이것만 조심하면 돼요</h2>
-  </div>
-  <div class="neon-line"></div>
-  <table style="flex:1">
-    <thead><tr><th style="width:32%">자주 하는 실수</th><th style="width:28%">어떻게 되나</th><th style="width:40%">해결 방법</th></tr></thead>
-    <tbody>
-      <tr class="td-hi"><td><strong>설계 없이 "만들어줘"</strong></td><td>엉뚱한 구조로 만들어줌</td><td>역할·기능·데이터 구조 먼저 정의</td></tr>
-      <tr><td><strong>한번에 전부 요청</strong></td><td>중간에 꼬이면 처음부터</td><td>단계별로 나눠서 전달</td></tr>
-      <tr class="td-hi"><td><strong>AI 퀴즈 검토 안 함</strong></td><td>틀린 문제가 학습자에게 노출</td><td>반드시 교수자가 확인 후 저장</td></tr>
-      <tr><td><strong>에러를 내 말로 설명</strong></td><td>AI가 엉뚱한 걸 고침</td><td>에러 메시지 그대로 전체 복사</td></tr>
-      <tr class="td-hi"><td><strong>API 키를 코드에 직접 삽입</strong></td><td>키 노출 → 과금 위험</td><td>별도 파일에 보관, AI에게 묻기</td></tr>
-      <tr><td><strong>테스트 없이 다음 단계로</strong></td><td>나중에 어디서 문제인지 모름</td><td>매 단계 완료 후 직접 눌러보기</td></tr>
-      <tr class="td-hi"><td><strong>AI 코드 100% 믿기</strong></td><td>실수를 발견 못 함</td><td>작동하는지 직접 눈으로 확인</td></tr>
-    </tbody>
-  </table>
+<div class="neon-line"></div>
+<div class="three-col" style="flex:1;align-items:stretch;gap:20px">
+<div class="card" style="padding:28px;height:100%">
+<div class="badge badge-pink" style="margin-bottom:14px;font-size:15px">생존 기술 1</div>
+<h4 style="font-size:21px;margin-bottom:16px">에러는 그대로 복사</h4>
+<div class="card" style="padding:14px;margin-bottom:12px;border-radius:12px;border-color:rgba(255,255,255,0.15)">
+<p style="font-size:16px;color:var(--gray)">😅 "에러 나요" "빨간 글씨 떠요"</p>
 </div>
-
-<!-- ══ 22 PART 4 표지 (심화) ══ -->
+<div class="card card-good" style="padding:14px;margin-bottom:14px;border-radius:12px">
+<p style="font-size:16px;color:#A7F3D0">✅ 에러 메시지 전체 복사<br>→ AI에 붙여넣기</p>
+</div>
+<p style="font-size:15px;color:var(--gray);line-height:1.7">에러 확인: F12 → Console 탭</p>
+</div>
+<div class="card" style="padding:28px;height:100%">
+<div class="badge badge-cyan" style="margin-bottom:14px;font-size:15px">생존 기술 2</div>
+<h4 style="font-size:21px;margin-bottom:16px">3가지 질문 공식</h4>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:rgba(255,45,138,0.08);padding:14px;border-radius:10px">
+<p style="font-size:15px;font-weight:700;color:var(--pink);margin-bottom:4px">🔴 문제 신고</p>
+<p style="font-size:15px;color:var(--soft)">[뭘 했는데] + [무슨 일이] + [기대했던 것]</p>
+</div>
+<div style="background:rgba(0,229,255,0.08);padding:14px;border-radius:10px">
+<p style="font-size:15px;font-weight:700;color:var(--cyan);margin-bottom:4px">🔵 기능 수정</p>
+<p style="font-size:15px;color:var(--soft)">[지금 동작] + [원하는 동작] + [화면 위치]</p>
+</div>
+<div style="background:rgba(0,230,118,0.08);padding:14px;border-radius:10px">
+<p style="font-size:15px;font-weight:700;color:var(--green);margin-bottom:4px">🟢 모를 때</p>
+<p style="font-size:15px;color:var(--soft)">[하려는 것] + [막힌 지점] + "비개발자야"</p>
+</div>
+</div>
+</div>
+<div class="card" style="padding:28px;height:100%">
+<div class="badge badge-orange" style="margin-bottom:14px;font-size:15px">생존 기술 3</div>
+<h4 style="font-size:21px;margin-bottom:16px">되돌리고 싶을 때</h4>
+<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+<div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:10px">
+<p style="font-size:15px;color:var(--soft)"><strong style="color:white">A.</strong> "방금 바꾼 거 되돌려줘"</p>
+</div>
+<div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:10px">
+<p style="font-size:15px;color:var(--soft)"><strong style="color:white">B.</strong> "로그인 만들기 전 상태로"</p>
+</div>
+<div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:10px">
+<p style="font-size:15px;color:var(--soft)"><strong style="color:white">C.</strong> "처음부터 다시. 설계서: [붙여넣기]"</p>
+</div>
+</div>
+<div class="card card-good" style="padding:12px;border-radius:10px">
+<p style="font-size:15px;color:var(--soft);text-align:center">처음부터 다시 = 정상 😊</p>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s22">
-  <div class="grid-bg"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1">
-    <div class="part-badge" style="background:linear-gradient(135deg,var(--purple),#4B0082)">PART 4 · 심화</div>
-    <h2 style="font-size:56px;margin-bottom:16px"><span class="text-neon">기술 이해</span></h2>
-    <p class="lead text-gray" style="max-width:600px;margin:0 auto 28px">
-      지금부터는 내부 구조 설명입니다.<br>
+<div class="grid-bg"></div>
+<div style="margin-block:auto;text-align:center;z-index:1">
+<div class="part-badge" style="background:linear-gradient(135deg,var(--purple),#4B0082)">PART 4 · 심화</div>
+<h2 style="font-size:56px;margin-bottom:16px"><span class="text-neon">기술 이해</span></h2>
+<p class="lead text-gray" style="max-width:600px;margin:0 auto 28px">
+      지금부터는 내부 구조 설명입니다.<br/>
       이해 안 돼도 괜찮아요 — 만드는 데 꼭 필요한 건 아닙니다
     </p>
-    <div class="card" style="display:inline-block;padding:14px 28px;background:rgba(155,0,255,0.1);border-color:rgba(155,0,255,0.3)">
-      <p style="font-size:18px;color:#C77DFF">"어떻게 돌아가는 걸까?" 궁금한 분들을 위한 파트</p>
-    </div>
-  </div>
+<div class="card" style="display:inline-block;padding:14px 28px;background:rgba(155,0,255,0.1);border-color:rgba(155,0,255,0.3)">
+<p style="font-size:18px;color:#C77DFF">"어떻게 돌아가는 걸까?" 궁금한 분들을 위한 파트</p>
 </div>
-
-<!-- ══ 23 전체 시스템 구조 ══ -->
+</div>
+</div>
 <div class="slide" id="s23">
-  <div class="slide-header">
-    <div class="tag tag-purple">PART 4 · 심화</div>
-    <h2>전체 시스템 구조</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="two-col" style="flex:1;align-items:center">
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="card card-cyan" style="padding:20px">
-        <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:12px;font-family:'Space Mono',monospace">FRONTEND (화면)</p>
-        <div class="flow" style="flex-direction:column;align-items:flex-start;gap:8px">
-          <div class="flow-item" style="width:100%;background:rgba(0,229,255,0.08);border-color:rgba(0,229,255,0.25)">🌐 HTML 파일 하나 (Vanilla JS)</div>
-          <div class="flow-item" style="width:100%">🎓 교수자 화면 &nbsp;|&nbsp; 🎮 학습자 화면</div>
-          <div class="flow-item" style="width:100%">🏆 공통 리더보드</div>
-        </div>
-      </div>
-      <div style="text-align:center;font-size:20px;color:var(--pink)">⬆ ⬇ 데이터 주고받기</div>
-      <div class="card card-orange" style="padding:20px">
-        <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:12px;font-family:'Space Mono',monospace">FIREBASE (저장소)</p>
-        <div class="flow" style="flex-direction:column;align-items:flex-start;gap:8px">
-          <div class="flow-item" style="width:100%">🗄️ 데이터 저장 (Firestore DB)</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="card card-pink" style="padding:20px">
-        <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:12px;font-family:'Space Mono',monospace">AI ENGINE</p>
-        <div class="flow-item" style="width:100%;margin-bottom:10px">🤖 Gemini AI API</div>
-        <ul class="check-list" style="font-size:15px">
-          <li>장르·주제 입력 → 문제 자동 생성</li>
-          <li>4지선다 보기 + 정답 + 해설 포함</li>
-          <li>JSON 형식으로 응답 → 앱에 표시</li>
-        </ul>
-      </div>
-      <div class="card card-gold" style="padding:18px">
-        <p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:10px;font-family:'Space Mono',monospace">전체 흐름</p>
-        <div class="flow" style="gap:6px;flex-wrap:wrap">
-          <div class="flow-item" style="font-size:14px;padding:7px 12px">AI 생성</div>
-          <div class="flow-arrow" style="font-size:16px">→</div>
-          <div class="flow-item" style="font-size:14px;padding:7px 12px">교수자 검토</div>
-          <div class="flow-arrow" style="font-size:16px">→</div>
-          <div class="flow-item" style="font-size:14px;padding:7px 12px">Firebase 저장</div>
-          <div class="flow-arrow" style="font-size:16px">→</div>
-          <div class="flow-item" style="font-size:14px;padding:7px 12px">학습자 참여</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="slide-header">
+<div class="tag tag-purple">PART 4 · 심화</div>
+<h2>전체 시스템 구조</h2>
 </div>
-
-<!-- ══ 24 Firebase 데이터 구조 ══ -->
+<div class="neon-line"></div>
+<div class="two-col" style="flex:1;align-items:center">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="card card-cyan" style="padding:20px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:12px;font-family:'Space Mono',monospace">FRONTEND (화면)</p>
+<div class="flow" style="flex-direction:column;align-items:flex-start;gap:8px">
+<div class="flow-item" style="width:100%;background:rgba(0,229,255,0.08);border-color:rgba(0,229,255,0.25)">🌐 AI Studio가 만들어준 웹 앱</div>
+<div class="flow-item" style="width:100%">🎓 교수자 화면  |  🎮 학습자 화면</div>
+<div class="flow-item" style="width:100%">🏆 공통 리더보드</div>
+</div>
+</div>
+<div style="text-align:center;font-size:20px;color:var(--pink)">⬆ ⬇ 데이터 주고받기</div>
+<div class="card card-orange" style="padding:20px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:12px;font-family:'Space Mono',monospace">FIREBASE (저장소)</p>
+<div class="flow" style="flex-direction:column;align-items:flex-start;gap:8px">
+<div class="flow-item" style="width:100%">🗄️ 데이터 저장 (Firestore DB)</div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="card card-pink" style="padding:20px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:12px;font-family:'Space Mono',monospace">AI ENGINE</p>
+<div class="flow-item" style="width:100%;margin-bottom:10px">🤖 Gemini AI API</div>
+<ul class="check-list" style="font-size:15px">
+<li>장르·주제 입력 → 문제 자동 생성</li>
+<li>4지선다 보기 + 정답 + 해설 포함</li>
+<li>JSON 형식으로 응답 → 앱에 표시</li>
+</ul>
+</div>
+<div class="card card-gold" style="padding:18px">
+<p style="font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:10px;font-family:'Space Mono',monospace">전체 흐름</p>
+<div class="flow" style="gap:6px;flex-wrap:wrap">
+<div class="flow-item" style="font-size:14px;padding:7px 12px">AI 생성</div>
+<div class="flow-arrow" style="font-size:16px">→</div>
+<div class="flow-item" style="font-size:14px;padding:7px 12px">교수자 검토</div>
+<div class="flow-arrow" style="font-size:16px">→</div>
+<div class="flow-item" style="font-size:14px;padding:7px 12px">Firebase 저장</div>
+<div class="flow-arrow" style="font-size:16px">→</div>
+<div class="flow-item" style="font-size:14px;padding:7px 12px">학습자 참여</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide" id="s24">
-  <div class="slide-header">
-    <div class="tag tag-orange">PART 4 · 심화</div>
-    <h2>Firebase에 어떻게 저장되는가</h2>
-  </div>
-  <div class="neon-line"></div>
-  <div class="three-col" style="flex:1;align-items:start;gap:18px">
-    <div>
-      <div class="tag tag-cyan" style="font-size:10px;margin-bottom:8px">📁 quizzes — 퀴즈 목록</div>
-      <div class="code-box" style="font-size:12px;line-height:1.8;padding:14px">
+<div class="slide-header">
+<div class="tag tag-orange">PART 4 · 심화</div>
+<h2>Firebase에 어떻게 저장되는가</h2>
+</div>
+<div class="neon-line"></div>
+<div class="three-col" style="flex:1;align-items:start;gap:18px">
+<div>
+<div class="tag tag-cyan" style="font-size:10px;margin-bottom:8px">📁 quizzes — 퀴즈 목록</div>
+<div class="code-box" style="font-size:12px;line-height:1.8;padding:14px">
 {
   <span class="kw">title</span>: <span class="str">"클래식 화성학"</span>,
   <span class="kw">genre</span>: <span class="str">"classical"</span>,
@@ -1614,14 +1669,14 @@ AI 음악 퀴즈 프로그램을 만들려고 해.
       <span class="kw">q</span>: <span class="str">"딸림화음은?"</span>,
       <span class="kw">opts</span>: [<span class="str">"F","G","Am","Dm"</span>],
       <span class="kw">ans</span>: <span class="str">1</span>, <span class="cm">// 정답 index</span>
-      <span class="kw">exp</span>: <span class="str">"5도 위가 딸림"</span>
+<span class="kw">exp</span>: <span class="str">"5도 위가 딸림"</span>
     }
   ]
 }</div>
-    </div>
-    <div>
-      <div class="tag tag-orange" style="font-size:10px;margin-bottom:8px">📁 scores — 점수 기록</div>
-      <div class="code-box" style="font-size:12px;line-height:1.8;padding:14px;margin-bottom:12px">
+</div>
+<div>
+<div class="tag tag-orange" style="font-size:10px;margin-bottom:8px">📁 scores — 점수 기록</div>
+<div class="code-box" style="font-size:12px;line-height:1.8;padding:14px;margin-bottom:12px">
 {
   <span class="kw">quizId</span>: <span class="str">"퀴즈 ID"</span>,
   <span class="kw">nickname</span>: <span class="str">"JazzMaster"</span>,
@@ -1630,107 +1685,100 @@ AI 음악 퀴즈 프로그램을 만들려고 해.
   <span class="kw">total</span>: <span class="str">10</span>,
   <span class="kw">submittedAt</span>: <span class="str">timestamp</span>
 }</div>
-      <div class="card card-orange" style="padding:12px">
-        <p style="font-size:14px;color:var(--soft)">리더보드는 이 컬렉션을 점수 내림차순으로 조회</p>
-      </div>
-    </div>
-    <div>
-      <div class="tag tag-purple" style="font-size:10px;margin-bottom:8px">📁 sessions — 로그인 정보</div>
-      <div class="code-box" style="font-size:12px;line-height:1.8;padding:14px;margin-bottom:12px">
+<div class="card card-orange" style="padding:12px">
+<p style="font-size:14px;color:var(--soft)">리더보드는 이 컬렉션을 점수 내림차순으로 조회</p>
+</div>
+</div>
+<div>
+<div class="tag tag-purple" style="font-size:10px;margin-bottom:8px">📁 sessions — 로그인 정보</div>
+<div class="code-box" style="font-size:12px;line-height:1.8;padding:14px;margin-bottom:12px">
 {
   <span class="kw">nickname</span>: <span class="str">"JazzMaster"</span>,
   <span class="kw">role</span>: <span class="str">"student"</span>,
   <span class="kw">lastSeen</span>: <span class="str">timestamp</span>
 }</div>
-      <div class="card card-purple" style="padding:12px;margin-bottom:10px">
-        <p style="font-size:14px;color:#C77DFF;font-weight:700">🔑 핵심 설계 원칙</p>
-      </div>
-      <ul class="check-list" style="font-size:14px">
-        <li>퀴즈와 점수 컬렉션 분리</li>
-        <li>scores에 quizId 필드 필수</li>
-        <li>리더보드는 실시간 구독 방식</li>
-        <li>닉네임 중복 방지 로직 필요</li>
-      </ul>
-    </div>
-  </div>
+<div class="card card-purple" style="padding:12px;margin-bottom:10px">
+<p style="font-size:14px;color:#C77DFF;font-weight:700">🔑 핵심 설계 원칙</p>
 </div>
-
-<!-- ══ 25 정리 로드맵 ══ -->
+<ul class="check-list" style="font-size:14px">
+<li>퀴즈와 점수 컬렉션 분리</li>
+<li>scores에 quizId 필드 필수</li>
+<li>리더보드는 실시간 구독 방식</li>
+<li>닉네임 중복 방지 로직 필요</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="slide" id="s25">
-  <div class="slide-header">
-    <div class="tag tag-cyan">정리</div>
-    <h2>전체 개발 로드맵</h2>
-  </div>
-  <div class="neon-line"></div>
-  <table style="flex:1;font-size:16px">
-    <thead><tr><th>단계</th><th>할 일</th><th>도구</th></tr></thead>
-    <tbody>
-      <tr><td colspan="3" style="background:linear-gradient(90deg,rgba(0,229,255,0.25),rgba(155,0,255,0.25));color:white;font-weight:700;text-align:center;font-size:14px">PART 1 — 바이브 코딩 이해</td></tr>
-      <tr><td>개념</td><td>SDD + Context Engineering 이해, 도구 선택</td><td>이 세미나</td></tr>
-      <tr><td colspan="3" style="background:linear-gradient(90deg,rgba(255,140,0,0.25),rgba(255,45,138,0.25));color:white;font-weight:700;text-align:center;font-size:14px">PART 2 — 기획</td></tr>
-      <tr><td>설계</td><td>역할 · 기능 · 화면 · 저장 데이터 직접 정리</td><td>직접 작성</td></tr>
-      <tr><td colspan="3" style="background:linear-gradient(90deg,rgba(255,45,138,0.25),rgba(155,0,255,0.25));color:white;font-weight:700;text-align:center;font-size:14px">PART 3 — 개발</td></tr>
-      <tr><td>1단계</td><td>Firebase 연결 + 닉네임 입장 화면 + 역할 분기</td><td>AI Studio</td></tr>
-      <tr><td>2단계</td><td>퀴즈 생성 · 목록 · 풀기 · 점수 · 리더보드</td><td>AI Studio</td></tr>
-      <tr><td>3단계</td><td>예외 처리 (중복 닉네임, 빈 입력, API 오류)</td><td>AI Studio</td></tr>
-      <tr><td>4단계</td><td>공개/비공개 분기, 이미 푼 퀴즈 처리</td><td>AI Studio</td></tr>
-      <tr class="td-hi"><td>배포 <span class="badge badge-red" style="font-size:11px;vertical-align:middle">심화</span></td><td>Firebase Hosting 또는 Vercel로 배포 → URL 공유</td><td>Antigravity + Vercel</td></tr>
-    </tbody>
-  </table>
+<div class="slide-header">
+<div class="tag tag-cyan">정리</div>
+<h2>전체 개발 로드맵</h2>
 </div>
-
-<!-- ══ 26 Q&A ══ -->
+<div class="neon-line"></div>
+<table style="flex:1;font-size:16px">
+<thead><tr><th>단계</th><th>할 일</th><th>도구</th></tr></thead>
+<tbody>
+<tr><td colspan="3" style="background:linear-gradient(90deg,rgba(0,229,255,0.25),rgba(155,0,255,0.25));color:white;font-weight:700;text-align:center;font-size:14px">PART 1 — 바이브 코딩 이해</td></tr>
+<tr><td>개념</td><td>SDD + Context Engineering 이해, 도구 선택</td><td>이 세미나</td></tr>
+<tr><td colspan="3" style="background:linear-gradient(90deg,rgba(255,140,0,0.25),rgba(255,45,138,0.25));color:white;font-weight:700;text-align:center;font-size:14px">PART 2 — 기획</td></tr>
+<tr><td>설계</td><td>역할 · 기능 · 화면 · 저장 데이터 직접 정리</td><td>직접 작성</td></tr>
+<tr><td colspan="3" style="background:linear-gradient(90deg,rgba(255,45,138,0.25),rgba(155,0,255,0.25));color:white;font-weight:700;text-align:center;font-size:14px">PART 3 — 개발</td></tr>
+<tr><td>1단계</td><td>Firebase 연결 + 닉네임 입장 화면 + 역할 분기</td><td>AI Studio</td></tr>
+<tr><td>2단계</td><td>퀴즈 생성 · 목록 · 풀기 · 점수 · 리더보드</td><td>AI Studio</td></tr>
+<tr><td>3단계</td><td>예외 처리 (중복 닉네임, 빈 입력, API 오류)</td><td>AI Studio</td></tr>
+<tr><td>4단계</td><td>공개/비공개 분기, 이미 푼 퀴즈 처리</td><td>AI Studio</td></tr>
+<tr class="td-hi"><td>배포 <span class="badge badge-red" style="font-size:11px;vertical-align:middle">심화</span></td><td>Firebase Hosting 또는 Vercel로 배포 → URL 공유</td><td>Antigravity + Vercel</td></tr>
+</tbody>
+</table>
+</div>
 <div class="slide" id="s26">
-  <div class="grid-bg"></div>
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,45,138,0.09) 0%,rgba(0,229,255,0.05) 50%,transparent 70%);pointer-events:none;z-index:0"></div>
-  <div style="margin-block:auto;text-align:center;z-index:1">
-    <div class="tag tag-gold" style="margin-bottom:22px">🎵 Summary</div>
-    <h2 style="margin-bottom:26px" class="text-neon">AI 음악 퀴즈 프로그램</h2>
-    <div class="four-col" style="margin-bottom:30px;gap:14px;max-width:900px;margin-inline:auto">
-      <div class="card card-cyan" style="text-align:center;padding:16px 10px">
-        <span style="font-size:28px;display:block;margin-bottom:6px">🤖</span>
-        <h4 class="text-cyan" style="font-size:15px;margin-bottom:3px">바이브 코딩</h4>
-        <p style="font-size:13px;color:var(--gray)">계획 → 전달<br>= 서비스 완성</p>
-      </div>
-      <div class="card card-orange" style="text-align:center;padding:16px 10px">
-        <span style="font-size:28px;display:block;margin-bottom:6px">🎓</span>
-        <h4 class="text-orange" style="font-size:15px;margin-bottom:3px">교수자</h4>
-        <p style="font-size:13px;color:var(--gray)">AI로 5분 만에<br>퀴즈 자동 생성</p>
-      </div>
-      <div class="card card-pink" style="text-align:center;padding:16px 10px">
-        <span style="font-size:28px;display:block;margin-bottom:6px">🎮</span>
-        <h4 class="text-pink" style="font-size:15px;margin-bottom:3px">학습자</h4>
-        <p style="font-size:13px;color:var(--gray)">닉네임으로<br>즉시 참여</p>
-      </div>
-      <div class="card card-gold" style="text-align:center;padding:16px 10px">
-        <span style="font-size:28px;display:block;margin-bottom:6px">🏆</span>
-        <h4 class="text-gold" style="font-size:15px;margin-bottom:3px">리더보드</h4>
-        <p style="font-size:13px;color:var(--gray)">실시간 경쟁<br>학습 동기 부여</p>
-      </div>
-    </div>
-    <div class="flow" style="justify-content:center;gap:8px;margin-bottom:32px">
-      <div class="flow-item" style="font-size:15px">📋 설계</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item" style="font-size:15px">🤖 AI 전달</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item" style="font-size:15px">✅ 단계 확인</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900;font-size:15px">🎵 완성!</div>
-    </div>
-    <div style="display:inline-block;padding:16px 52px;border-radius:100px;background:linear-gradient(135deg,rgba(255,45,138,0.13),rgba(0,229,255,0.13));border:1px solid rgba(255,255,255,0.14)">
-      <h3 style="font-size:46px;letter-spacing:5px" class="text-neon">Q &amp; A</h3>
-    </div>
-  </div>
+<div class="grid-bg"></div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,45,138,0.09) 0%,rgba(0,229,255,0.05) 50%,transparent 70%);pointer-events:none;z-index:0"></div>
+<div style="margin-block:auto;text-align:center;z-index:1">
+<div class="tag tag-gold" style="margin-bottom:22px">🎵 Summary</div>
+<h2 class="text-neon" style="margin-bottom:26px">AI 음악 퀴즈 프로그램</h2>
+<div class="four-col" style="margin-bottom:30px;gap:14px;max-width:900px;margin-inline:auto">
+<div class="card card-cyan" style="text-align:center;padding:16px 10px">
+<span style="font-size:28px;display:block;margin-bottom:6px">🤖</span>
+<h4 class="text-cyan" style="font-size:15px;margin-bottom:3px">바이브 코딩</h4>
+<p style="font-size:13px;color:var(--gray)">계획 → 전달<br/>= 서비스 완성</p>
 </div>
-
+<div class="card card-orange" style="text-align:center;padding:16px 10px">
+<span style="font-size:28px;display:block;margin-bottom:6px">🎓</span>
+<h4 class="text-orange" style="font-size:15px;margin-bottom:3px">교수자</h4>
+<p style="font-size:13px;color:var(--gray)">AI로 5분 만에<br/>퀴즈 자동 생성</p>
+</div>
+<div class="card card-pink" style="text-align:center;padding:16px 10px">
+<span style="font-size:28px;display:block;margin-bottom:6px">🎮</span>
+<h4 class="text-pink" style="font-size:15px;margin-bottom:3px">학습자</h4>
+<p style="font-size:13px;color:var(--gray)">닉네임으로<br/>즉시 참여</p>
+</div>
+<div class="card card-gold" style="text-align:center;padding:16px 10px">
+<span style="font-size:28px;display:block;margin-bottom:6px">🏆</span>
+<h4 class="text-gold" style="font-size:15px;margin-bottom:3px">리더보드</h4>
+<p style="font-size:13px;color:var(--gray)">실시간 경쟁<br/>학습 동기 부여</p>
+</div>
+</div>
+<div class="flow" style="justify-content:center;gap:8px;margin-bottom:32px">
+<div class="flow-item" style="font-size:15px">📋 설계</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="font-size:15px">🤖 AI 전달</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="font-size:15px">✅ 단계 확인</div>
+<div class="flow-arrow">→</div>
+<div class="flow-item" style="background:rgba(255,45,138,0.2);border-color:rgba(255,45,138,0.5);color:var(--pink);font-weight:900;font-size:15px">🎵 완성!</div>
+</div>
+<div style="display:inline-block;padding:16px 52px;border-radius:100px;background:linear-gradient(135deg,rgba(255,45,138,0.13),rgba(0,229,255,0.13));border:1px solid rgba(255,255,255,0.14)">
+<h3 class="text-neon" style="font-size:46px;letter-spacing:5px">Q &amp; A</h3>
+</div>
+</div>
+</div>
 </div><!-- /slideshow -->
-
 <nav class="nav" role="navigation">
-  <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" aria-label="이전">&#8592;</button>
-  <span class="nav-info" id="navInfo">1 / 26</span>
-  <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)"  aria-label="다음">&#8594;</button>
+<button aria-label="이전" class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">←</button>
+<span class="nav-info" id="navInfo">1 / 26</span>
+<button aria-label="다음" class="nav-btn" id="nextBtn" onclick="changeSlide(1)">→</button>
 </nav>
-
 <script>
   const slides=document.querySelectorAll('.slide'),total=slides.length;
   let current=0;
@@ -1770,7 +1818,17 @@ AI 음악 퀴즈 프로그램을 만들려고 해.
   let tx=0;
   document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
   document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)changeSlide(dx<0?1:-1);});
-  goTo(0);
+
+  // URL ?p=숫자 로 바로가기
+  function updateURL(n){
+    const url=new URL(location.href);
+    url.searchParams.set('p', n+1);
+    history.replaceState(null,'',url);
+  }
+  const _goTo=goTo;
+  goTo=function(n){_goTo(n);updateURL(n);};
+  const initPage=parseInt(new URL(location.href).searchParams.get('p'))||1;
+  goTo(Math.max(0, Math.min(initPage-1, total-1)));
 </script>
 </body>
 </html>
